@@ -1,0 +1,576 @@
+[
+  {
+    "name": "Bhai Bhai Kitna Kitna Pani",
+    "meaning": "Brother, how high is the water level?",
+    "aim": "For the catcher to catch any on of the swayamsevaks before they reach a pre-defined point",
+    "description": "Initially, all swayamsevaks will stand at one end of the area and all face one direction, with the catcher standing at least three metres in front of the swayamsevaks. The swayamsevaks will be standing in a semi-circular fashion, so they are equally same distance away from the catcher. When kuru is given, the swayamsevaks will shout out Bhai Bhai Kitna Kitna Pani Hey? . The catcher will reply Itna Itna Pani Hey , and move his hands along his body to indicate the level of the water. This question and reply will continue until the catcher indicates the water level to be above his head, at which point the catcher will turn around and chase the swayamsevaks. If he catches a swayamsevaks before he reaches a pre-defined point then that swayamsevak will become the catcher, otherwise the catcher will retain his role.",
+    "category": "Pursuit"
+  },
+  {
+    "name": "Chor Sipayee",
+    "meaning": "Chor - thief, Sipayee - police",
+    "aim": "For the Sipayee to catch the Chor",
+    "description": "Initially, all swayamsevaks except the chor and the sipayee will stand in a grid formation, facing the same way so that there is a swayamsevak at every horizontal and vertical interaction. The swayamsevaks will also have their arms in a horizontal position, thereby forming a number of channels . These channels are the only forms of travel for both the chor and sipayee. They are not allowed to go under the arms of the swayamsevaks. When kuru is given, the sipayee will try to catch the chor, and at the same time the shikshak will shout out three different orders, Dakshina Vrut, Vama Vrut or Ardha Vrut to the swayamsevaks, so the channels keep changing.",
+    "category": "Pursuit"
+  },
+  {
+    "name": "Hathi Ke Soond",
+    "meaning": "Hathi - elephant, Soond - the trunk of the elephant",
+    "aim": "For the catcher to catch all of the swayamsevaks using his trunk",
+    "description": "All swayamsevaks including the catcher will be inside the area. The catcher will be imitating an elephant. This is done by holding his nose with one hand, thus creating a loop, and placing his other arm through the loop, hence imitating the elephants trunk. When kuru is given the catcher will attempt to catch all swayamsevaks by using his trunk . Those swayamsevaks caught or who step outside the area will be out of the game.",
+    "category": "Pursuit"
+  },
+  {
+    "name": "Langadaa",
+    "meaning": "Langadaa - hopping",
+    "aim": "For the catcher to catch all swayamsevaks in the area",
+    "description": "Initially, all swayamsevaks including the catcher will be inside the area. The catcher can only hop, whilst the rest of the swayamsevaks can run. When kuru is given the catcher will attempt to catch the swayamsevaks by touching his foot against the swayamsevak. Those swayamsevaks caught or who step outside the area will be out of the game.",
+    "category": "Pursuit"
+  },
+  {
+    "name": "Kabaddi Choo",
+    "meaning": "Kabaddi - chant, Choo - touch",
+    "aim": "For the team outside the area to catch as many members of team inside the area",
+    "description": "Initially, one team will be outside the area, and the other team will be inside the area. When kuru is given, the swayamsevaks in the outer team will enter the area and will attempt to catch as many swayamsevaks as possible whilst saying kabaddi, kabaddi in one breadth. The swayamsevaks who are caught or step outside the area will be out of the game. Note, the catcher has to continue saying kabaddi until returns back to his position, otherwise the swayamsevaks caught will be allowed to resume the game.",
+    "category": "Pursuit"
+  },
+  {
+    "name": "Kath Ghar",
+    "meaning": "Kath - Cage, Ghar - house",
+    "aim": "For the swayamsevaks forming the kath ghar to trap other swayamsevaks in the ghar when they pass through it.",
+    "description": "All swayamsevaks will be standing on the circle, including the three swayamsevaks who forms a kath ghar by holding each other's hand above their heads. When kuru is given the rest of the swayamsevaks will run around the circle, passing through the kath ghar one by one. When the whistle is blown, the swayamsevaks forming the kath ghar will lower their arms. Any swayamsevak caught inside the kath ghar will be out of the game. The game will continue with the kath ghar being free to pass through, again.",
+    "category": "Pursuit"
+  },
+  {
+    "name": "Mein Shivaji",
+    "meaning": "I am Shivaji . The great person, Shivaji from Maharashtra, who defeated the Moguls with his tiny army and tactical warfare, and who was crowned king in 1674.",
+    "aim": "For the catcher to pursue the swayamsevak who is Shivaji, and catch him.",
+    "description": "All swayamsevaks will be inside the area, including the catcher and one swayamsevak who will be nominated as Shivaji. When kuru is given the catcher will chase Shivaji. The rest of theswayamsevaks will try to save Shivaji by passing between the catcher and Shivaji, and shouting out Mein Shivaji . Immediately, the swayamsevak who passed between the two will become the new Shivaji, and the catcher will try to chase that swayamsevak. If Shivaji gets caught, then the games stops, and new catcher and Shivaji are named before the game resumes again. Note, at any given time there can only be one catcher and Shivaji, and also other swayamsevaks can only shout out Mein Shivaji when they clearly pass between the catcher and Shivaji, and not before or after.",
+    "category": "Pursuit"
+  },
+  {
+    "name": "Namaskar Ke Sparsh",
+    "meaning": "Namaskar - welcome/greeting, Sparsh - to touch",
+    "aim": "For the catcher to catch all the swayamsevaks whilst in the Namaste position.",
+    "description": "All swayamsevaks including the catcher will be inside the area. The catcher will place his hands together as in Namaste position, but with the arms stretched out. When kuru is given the catcher will attempt to catch all the swayamsevaks. Those swayamsevaks caught or who step outside the area will be out of the game.",
+    "category": "Pursuit"
+  },
+  {
+    "name": "Mendhak Sahatya",
+    "meaning": "Mendhak - frog, Sahayta - helper/assistant",
+    "aim": "For the mendhak and his sahaytas to catch as many swayamsevaks as possible",
+    "description": "Initially, all swayamsevaks will be inside the circle. There will be three catchers. Two in mendhak (frog) position and one in langadi (hopping) position. When kuru is given, the three catchers will try to catch as many swayamsevaks as possible. Those swayamsevaks caught or who step outside the area will be out of the game.",
+    "category": "Pursuit"
+  },
+  {
+    "name": "Murti",
+    "meaning": "Murti - statue",
+    "aim": "For the catcher to spot all swayamsevaks not in murti position before they reach him",
+    "description": "Initially, the catcher will be at one end of the area, standing stationary with his back facing the rest of the swayamsevaks. The rest of the swayamsevaks will be at the other end of the area facing in the same direction as the catcher and standing in a row. When kuru is given, the swayamsevaks will start to match towards the catcher. Everytime the catcher turns round to look at the swayamsevaks, they should all stand as a murti. The catcher will repeatedly turn round to catch the swayamsevaks, until he spots all swayamsevaks not in murti position. The other swayamsevaks will try to touch the catcher's head without getting caught.",
+    "category": "Pursuit"
+  },
+  {
+    "name": "Sher Bakari",
+    "meaning": "Sher - tiger, Bakari - goat",
+    "aim": "For the Sher to catch the Bakari",
+    "description": "There are two versions of this game. In the first version, all swayamsevaks except one swayamsevak being the sher and another swayamsevak being the bakari will stand in a circle, holding the adjacent swayamsevaks hand. The Sher will be outside the circle, whilst the bakari will be inside the circle. When kuru is given, the Sher will try to catch the Bakari. The swayamsevaks on the circle will use their arms to stop the sher from proceeding, but allowing the bakari to move in and out of the circle. Note, the swayamsevaks on the circle are not allowed to move from their spot, or use their legs to stop the sher. The game will continue until bakari gets caught, otherwise the roles will be changed if after some certain time, the bakari never gets caught. In the second version, all the swayamsevaks will be inside the circle as bakaris, except one swayamsevak the sher who will be outside the circle. When kuru is given the sher will try to force all the bakaris out of the circle. The bakaris are allowed to slap the sher flat handed on the sher's back or back of the legs only, to deter the sher. The bakaris are not allowed to hold on to the sher or each other.",
+    "category": "Pursuit"
+  },
+  {
+    "name": "Oii",
+    "meaning": "Ouch!",
+    "aim": "For the catcher to catch any one swayamsevaks before he reaches a pre-defined point",
+    "description": "Initially, the catcher will be at one end of the area, standing stationary with his back facing the rest of the swayamsevaks. The rest of the swayamsevaks will be at the other end of the area facing in the same direction as the catcher and standing in a row. When kuru is given, theswayamsevaks will start to match towards the catcher, and at the same time swayamsevak at one end will touch adjacent swayamsevaks shoulder, who will in turn touch the swayamsevaks shoulder standing next to him, and so on. When the last swayamsevaks shoulder gets touched, he will shout out Oii . Immediately, the catcher will turn around and chase the swayamsevaks. If he catches a swayamsevaks before he reaches a pre-defined point then that swayamsevak will become the catcher, otherwise the catcher will retain his role.",
+    "category": "Pursuit"
+  },
+  {
+    "name": "Vaare Sinh",
+    "meaning": "Vare - well done - Sinh - Lion - Well done lion",
+    "aim": "For the swayamsevaks outside the bigger circle to step inside the smaller circle, and slap the swayamsevak who is in the smaller circle on his back only.",
+    "description": "Initially, one swayamsevak (Sinh) will be inside the smaller circle, sitting in a mendhak (frog) position, and the rest of the swayamsevaks will be outside the bigger circle. When kuru is given swayamsevaks will step inside the circle and try to slap the sinh. on his back. When they slap him on his back, they have to shout out Vaare Sinh. The sihn will try to avoid being slapped by rotating around quickly. He will also try catch the other swayamsevaks with his feet when they step inside the circle. If any swayamsevak is caught, then he takes the sinh's position in the small circle.",
+    "category": "Pursuit"
+  },
+  {
+    "name": "Vish Amrit",
+    "meaning": "Vish - poison, Amrit - nectar",
+    "aim": "For the catcher(s) to catch as many swayamsevaks as possible by giving them the poison",
+    "description": "All swayamsevaks including the catcher(s) will be inside the area. When kuru is given swayamsevaks will avoid getting caught by squatting down when the catcher approaches them. Whilst in the squatting position, the catcher will place his hand on the swayamsevak and say Vish. From now on this swayamsevak is poisoned have to remain stationary, until another swayamsevak comes, places his hand on his head and says Amrit. The swayamsevak is now free to help other swayamsevaks who are poisoned being cautious of not getting caught by the catcher again. Those swayamsevaks caught whilst on their feet, or who step outside the area will be out of the game.",
+    "category": "Pursuit"
+  },
+  {
+    "name": "Delhi Hamaaree",
+    "meaning": "Delhi is ours!",
+    "aim": "Survival of the fittest.To be the closets swayamsevak to capture the spot highlighted as Delhi",
+    "description": "This game is played with one swayamsevak defending a small circular area which represents Delhi. The other swayamsevaks will try and occupy that area when the whistle is blown. After the second whistle is blown, the swayamsevaks will stop their movement. The swayamsevak with the most part his body on the area will be the winner and the games starts again with him in the middle. Before each games starts the swayamsevak occupying the area will shout Dehi Kiskee and each time the remaining swayamsevaks shall reply Hamaaree!",
+    "category": "Individual"
+  },
+  {
+    "name": "Dharma Shaalaa",
+    "meaning": "",
+    "aim": "Survival of the fittest. To be the last remaining swayamsevak in a Mandal (circle) by pushing out all other swayamsevaks        ",
+    "description": "All swayamsevaks will be positioned inside a Mandal, When the whistle is blown all swayamsevaks must wrestle to push other swayamsevaks out of the Mandal. The last remaining swayamsevak wins",
+    "category": "Individual"
+  },
+  {
+    "name": "Ek Bood Baad Karo",
+    "meaning": "One step at a time remove others",
+    "aim": "When it is each swayamsevaks turn with one jump he will try and land near a swayamsevak and make him out by touching his head",
+    "description": "Initially, all swayamsevaks will be standing on the perimeter of the circle. Turn by turn each swayamsevak will take a standing jump forwards or sideways. If after the jump the swayamsevak can touch the head of another swayamsevak then that swayamsevak will be out of the game.",
+    "category": "Individual"
+  },
+  {
+    "name": "Ek Pair Spardha",
+    "meaning": "Ek Pair - I foot, Spardha - raise",
+    "aim": "For the swayamsevaks to reach a set target",
+    "description": "All swayamsevaks will be on a line, with both their hands and only one foot touching the ground. When kuru is given, the swayamsevaks will be move using both their hands and one foot to a set target. The first swayamsevak to reach the target will be the winner",
+    "category": "Individual"
+  },
+  {
+    "name": "Ghuntneko Rumaal Bandhannaa",
+    "meaning": "Ghuntneko - knee, Rumaal - handkerchief , Bandhannaa - tie Tie a handkerchief to your opponents knee",
+    "aim": "Survival of the fittest. All swayamsevaks will fight in the position described and the last swayamsevak left will win the competition",
+    "description": "The swayamsevaks will be in pairs in which each shall have a handkerchief, and must fight to tie it onto the opponents knee. Each swayamsevak must ensure that his knees do not touch the ground during the fight, else he will be disqualified. The first to tie the handkerchief wins. Continue pairing the winners only until the last swayamsevak remains.",
+    "category": "Individual"
+  },
+  {
+    "name": "Kukad Yudhdha",
+    "meaning": "Chicken hen fighting",
+    "aim": "Survival of the fittest. All swayamsevaks will fight in the position described and the last swayamsevak left will win the competition",
+    "description": "All the swayamsevaks will be standing within a circle. Each swayamsevak will be standing on their left leg only. The right leg should be bent in such a manner to enable the right hand to hold the ankle of the right leg and the left hand will support the elbow of the right hand. The swayamsevaks must then fight using their shoulders and their bodies in an attempt to cause each other to lose their grips on their elbows and ankles, or to push each other out of the circle. The last remaining swayamsevak wins",
+    "category": "Individual"
+  },
+  {
+    "name": "Bhasmaasur",
+    "meaning": "One whose touch reduces that to ashes",
+    "aim": "To avoid being touched on the head by other swayamsevaks",
+    "description": "All swayamsevaks will be inside the area. When kuru is given the swayamsevaks will using their right hand only try to touch it on other swayamsevaks head. They will use their left arm to defend themselves. Those swayamsevaks who gets touched on their head or the swayamsevaks own right hand touches his head or any swayamsevaks steps outside the area will be out of the game.",
+    "category": "Individual"
+  },
+  {
+    "name": "Bhaaloo Yudhdha",
+    "meaning": "Bhaaloo - Bear, Yudhdha - war",
+    "aim": "To fight against other swayamsevaks",
+    "description": "All swayamsevaks will be inside the area, holding their ankles. When kuru is given they will attempt to push other swayamsevaks so they loose their hold on the ankles. Those swayamsevaks who loose their grip or steps outside the area will be out of the ga",
+    "category": "Individual"
+  },
+  {
+    "name": "Chor Ghaatee",
+    "meaning": "Chor - thief",
+    "aim": "For the swayamsevak in the square to catch swayamsevaks and hold them inside the area.",
+    "description": "One swayamsevak will be inside the square. The rest of the swayamsevaks will be outside the square on one side. When kuru is given, the swayamsevaks will run through the square, and the catcher will stop them going through. Any swayamsevaks who he catches he will have to hold them down inside the square until the shikshak says stops or blows the whistle. Those swayamsevaks caught will be out of the game.",
+    "category": "Individual"
+  },
+  {
+    "name": "Lambee Kood",
+    "meaning": "Lambee - long, Kood - jump",
+    "aim": "Compete to see which swayamsevak can take the longest standing jump",
+    "description": "Initially, all swayamsevaks will be standing shoulder to shoulder in one line. Turn by turn each swayamsevak will take a standing jump forwards. The swayamsevak with the longest jump will be the winner.",
+    "category": "Individual"
+  },
+  {
+    "name": "Mendhak Kood Spardha",
+    "meaning": "Mendhak - frog, Kood - jump, Spardha - competition",
+    "aim": "For the swayamsevaks to frog-leap to a specified mark",
+    "description": "All swayamsevaks will be in the mendhak position i.e. crouched down with their hands in front of them. When kuru is given, the swayamsevaks will frog-leap to the finishing line.",
+    "category": "Individual"
+  },
+  {
+    "name": "Prakoshtha Dabaanaa",
+    "meaning": "Arm Wrestling",
+    "aim": "Survival of the fittest. All swayamsevaks will be paired and they will wrestle in the position described below.",
+    "description": "Both swayamsevaks will place their elbows on the ground clasping each others hands, and will place their free arm behind their backs. The first to place the lower arm of the other swayamsevak on the ground wins. Note, the swayamsevaks must not lift their elbows or use their free hands in anyway.",
+    "category": "Individual"
+  },
+  {
+    "name": "Tandav Nrutya",
+    "meaning": "Nrutya - Dance",
+    "aim": "To step on each other's feet",
+    "description": "Initially, all swayamsevaks will be inside the area with their hands clasped behind them. When kuru is given, each will try to step on each others foot. Those swayamsevaks whose foot gets stepped upon or goes outside the area will be out of the game.",
+    "category": "Individual"
+  },
+  {
+    "name": "Teen Pair Spardha",
+    "meaning": "Teen - three, Pair - feet, Spardha - competition",
+    "aim": "swayamsevaks in a group of three will try to reach a specified mark",
+    "description": "swayamsevaks will group themselves in pairs. The pairs will stand in a line with the left leg of one swayamsevak and the right leg of one swayamsevak tied together. When kuru is given, the groups will race each other to the finishing line.",
+    "category": "Individual"
+  },
+  {
+    "name": "Vrushchik Yudhdha",
+    "meaning": "Scorpion fighting",
+    "aim": "Survival of the fittest pair. All swayamsevaks will work in pairs to form a scorpion shape and fight. The last pair of swayamsevak remaining will win the competition",
+    "description": "The swayamsevaks will be in pairs in which one will be standing and holding the other by the waist in mid air so that the second swayamsevak torso will be in a diagonal shape with his legs wrapped around the standing swayamsevak, thus forming the Vrushchik position. The pairs will fight each other, with their hands only, trying to get the opponent Vrushchik to fall down. The last remaining pair wins",
+    "category": "Individual"
+  },
+  {
+    "name": "Agni Kund",
+    "meaning": "Sacrificial fire",
+    "aim": "For the swayamsevaks to avoid stepping in the agni kund",
+    "description": "There will be a small circle which will act as the agni kund, and gathered around in a circle will be the swayamsevaks holding adjacent swayamsevaks hands. When kuru is given, the swayamsevaks will try to pull/push each other into the agni kund. Those swayamsevaks who step in the kund will be out of the game, or the pair of swayamsevaks who broke the link will be both out of the game. The game will continue until one swayamsevak survives from stepping in the kund, and he will be the winner.",
+    "category": "Mandal"
+  },
+  {
+    "name": "Sudarshan Chakra",
+    "meaning": "Bhagavān Krishna's weapoon / disc",
+    "aim": "The aim is for the swayamsevaks to remain in the chakra",
+    "description": "All swayamsevaks will get together to form a circle. They will hold adjacent swayamsevaks hands and stand only on their heels. When kuru is given, the chakra will rotate around as fast as possible. Those swayamsevaks who touch their palms of their feet on the ground or the link between two swayamsevaks breaks will be out of the game. The last swayamsevak left will be the winner.",
+    "category": "Mandal"
+  },
+  {
+    "name": "Dand Daud",
+    "meaning": "Race with a Dand",
+    "aim": "For one team to pass the dand round the circle as quickly as possible, and place the dand in their opponents circle",
+    "description": "Two teams will form a large circle each. The circles will be adjacent to each other. Each team will have a dand each. When kuru is given the dand will be passed from one swayamsevak to another swayamsevak until the dand reaches the starting swayamsevak again. As soon as he gets the dand again he will throw it in the opponents circle. The team who manages to throw the dand in their opponents circle first will be the winners.",
+    "category": "Mandal"
+  },
+  {
+    "name": "Ghar Javo",
+    "meaning": "Go home",
+    "aim": "For swayamsevaks to go to a vacant home",
+    "description": "Initially, all swayamsevaks will be standing on the edge of the area, and in front of them a marker will be placed which will act as a house. There will also be a house in the centre of the area which will be initially empty. When kuru is given, each swayamsevak will vacate their home and go to another home. However, they can t go to their immediate neighbours house, i.e. the adjacent houses. Whilst the game is going on the shikshak will remove one house at a time, so there will less houses to go around for each swayamsevak. Those swayamsevaks without a house will be out of the game.",
+    "category": "Mandal"
+  },
+  {
+    "name": "Khajanekee Raksha",
+    "meaning": "Protect the treasure",
+    "aim": "For teams of swayamsevak to protect the object (treasure) from the other swayamsevaks",
+    "description": "Three circles will be drawn within each other i.e small circle within a medium circle which will be in a large circle. An object (treasure) with one swayamsevak will be placed inside the small circle. Other swayamsevaks in the same team will be distributed within the medium sized circle. Their objective will be to protect the treasure by insuring the opposing team swayamsevaks do not enter their area by pushing and pulling them away.",
+    "category": "Mandal"
+  },
+  {
+    "name": "Kramaank Badal",
+    "meaning": "Change Numbers",
+    "aim": "Aim for the swayamsevak in the centre of the circle to grab one of the vacant spots when two swayamsevaks are changing places",
+    "description": "Initially, one swayamsevak will be in the centre of the circle, whilst the rest of the swayamsevaks will be on the circle, and each will have a number. When the shikshak shouts out two numbers the swayamsevaks with those numbers will quickly change places. When they changing places the swayamsevak in the centre will try to grab one of the vacant positions. The swayamsevak who is left without a place to go will end up in the middle of the circle, and he will wait for the shikshak to shout out another two numbers.",
+    "category": "Mandal"
+  },
+  {
+    "name": "Langdo mey Spardha",
+    "meaning": "Hopping Competition",
+    "aim": "For the swayamsevaks to get as many objects from the centre of the circle",
+    "description": "Initially, all swayamsevaks will be one leg on the perimeter of the circle. There will be a number of objects in the centre of the circle. When kuru is given, each swayamsevak will hop to the centre of the circle, grab one object and will return to their place. They will leave the object there before going for another object. Note, swayamsevaks have to be hopping all the time, and they can only pick one object at a time. The swayamsevak with the most objects will be the winner.",
+    "category": "Mandal"
+  },
+  {
+    "name": "Mandal Daud Ghode Par Savaari",
+    "meaning": "Run around the circle and mount the horse",
+    "aim": "For one of the swayamsevak in the pair to run round a circle and then climb on the back of his partner before the others",
+    "description": "Initially, all pairs of swayamsevaks will stand on the perimeter of the circle, with one of the swayamsevak on the back of his partner. When kuru is given, the swayamsevaks on the back of their partner will dismount, run around the circle, and when they reach they will go underneath their partner's legs before mounting. The last swayamsevak to do this will swap with their partner. If the pair has already swapped then they will be out of the game. The game will continue until, only one pair is left, and they will be the winners.",
+    "category": "Mandal"
+  },
+  {
+    "name": "Mandal Jodi Mey Kho",
+    "meaning": "Kho Kho in pairs in a circle",
+    "aim": "For the catcher to catch the free running swayamsevak",
+    "description": "swayamsevaks will be standing in a circle, with one swayamsevak behind his partner, and all swayamsevaks facing the centre of the circle. There will one catcher who will be outside the circle and the free running swayamsevak inside the circle. When kuru is given the catcher will try to catch the swayamsevak. The free running swayamsevak will avoid getting caught by standing in front of a pair of swayamsevak, and clapping once. As soon he claps the second of the pair swayamsevak will get chased by the catcher, and he will be the new free running swayamsevak. The previous free running swayamsevak will be paired with the lone swayamsevak, who will now stand behind. The game will continue until the swayamsevak gets caught or stabha is given.",
+    "category": "Mandal"
+  },
+  {
+    "name": "Nak Pakado",
+    "meaning": "Hold the nose",
+    "aim": "For the catcher to touch anyone who is not holding their nose",
+    "description": "Initially, all swayamsevaks will be standing on the circle facing the centre with catcher in middle of the circle. The swayamsevaks will be holding their nose by first placing their arm underneath one leg. When kuru is given, the catcher will touch any swayamsevaks not holding their nose. The swayamsevak who gets caught first will take the catcher place.",
+    "category": "Mandal"
+  },
+  {
+    "name": "Namaste",
+    "meaning": "Greetings",
+    "aim": "For the runner to grab a vacant position on the circle",
+    "description": "Initially, all swayamsevaks will sitting down in a circle facing the centre, except one swayamsevak who will be running around the circle. When kuru is given, he will touch one swayamsevak, and continue to run around the circle. The touched swayamsevak will start to run in the opposite direction, so leaving a vacant position on the circle. When they meet they both have to say Namaste, then try to get to the vacant position. The swayamsevak who doesn t get the vacant spot will continue running, and will touch some other swayamsevak and try to grab his position. The game will continue until stabha is given.",
+    "category": "Mandal"
+  },
+  {
+    "name": "Sathi Dhoondhanaa",
+    "meaning": "Find your partner",
+    "aim": "For a pair of swayamsevaks to get to the circle first",
+    "description": "Initially, the pairs of swayamsevaks will stand on the perimeter of the circle. One of the pair will stand on the inner circle, whilst the other pair will stand on the outer circle. When kuru is given, the swayamsevaks on the inner circle will go round the circle clockwise, whilst swayamsevaks on the outer circle will go round anti-clockwise. When the pair of swayamsevaks meet again they will quickly go to the centre of the circle. The last pair to get to the centre will be out of the game. The game will continue until, only one pair is left, and they will be the winners.",
+    "category": "Mandal"
+  },
+  {
+    "name": "Shvas Rudhi",
+    "meaning": "Controlled breathing",
+    "aim": "For the swayamsevaks to hold their breadth whilst doing a full circle.",
+    "description": "All swayamsevaks will stand in a circle. Turn by turn each swayamsevak will run the circle once, whilst saying kabaddi-kabaddi in one breadth. Those swayamsevaks who do not manage it will be out of the game. The shikshak will now decide for the next round whether the surviving swayamsevaks should go round twice or go round a larger circle. After a number of rounds, the surviving swayamsevak(s) will be the winner(s).",
+    "category": "Mandal"
+  },
+  {
+    "name": "Unapekshit Langadi",
+    "meaning": "Unexpected hopping",
+    "aim": "For one team to catch all the swayamsevaks in the other team whilst hopping",
+    "description": "One team will be inside the area, and another team will be outside the area. The swayamsevaks in the team outside the area will each have a number. When a number is shouted out by the shikshak the swayamsevak with that number will enter the area hopping and will try to catch as many swayamsevaks as possible before returning back to his position. The shikshak will shout out another number and another swayamsevak will enter the area. Any swayamsevaks caught or who steps outside the area will be out of the game.",
+    "category": "Mandal"
+  },
+  {
+    "name": "Aparichit Saathee",
+    "meaning": "Aparichit - Introduction - Lets introduce each other",
+    "aim": "swayamsevaks with the same number from the same team will try and get together, form a pair and sit down. The last pair to get together will be out",
+    "description": "swayamsevaks in each team will be allocated a unique number. The two teams will then be distributed in the area. When the shikshak whistle is blown, swayamsevaks from both of the teams with the same number must get together and form a pair. The last pair to get together will be out.",
+    "category": "Team"
+  },
+  {
+    "name": "Akhand Lambee Kood",
+    "meaning": "Combined Jumping competition",
+    "aim": "A team will all take a series of successive jumps. The team with the longest combined jumps will win.",
+    "description": "The first swayamsevak from each team will take a standing jump. The second swayamsevak will then take a jump from where the first swayamsevak landed. The third from where the second landed. So on and so forth until all swayamsevaks have jumped. The team with the longest combined jumps will win.",
+    "category": "Team"
+  },
+  {
+    "name": "Damaroo Daud",
+    "meaning": "Run the race path shaped like the Damaroo drum. The damaroo can be seen commonly in pictures of Lord Shiva where in one hand he is holding the damaroo drum.",
+    "aim": "Two teams will race against each other. The race path is shaped like a Damoroo Duad and the first team whose players have completed the race path will be the team to win",
+    "description": "The damaroo when viewed at a certain angle forms the shape of the number 8. Two teams will be facing each other and both will have equal numbers. When the whistle is blown the first swayamsevak from each team will run a figure of eight, making sure he runs behind own team and around the opposing team during his run, before returning to his own position. Once the first swayamsevak reaches his position, the second swayamsevak does the same and so on until all the swayamsevaks have had a turn. The first team to finish wins.",
+    "category": "Team"
+  },
+  {
+    "name": "Deevar Yudhha",
+    "meaning": "Wall Fighting",
+    "aim": "Survival of the fittest team. All swayamsevaks will work together in a team to push and/or break the opposing team",
+    "description": "Two teams will be formed and each team will link together their hands. They will then stand back to back. When the whistle is blown both teams will push hard to push the opposing team out of the area or break the chain and thereby the Deevar.",
+    "category": "Team"
+  },
+  {
+    "name": "Khandahar Kood",
+    "meaning": "Jump over the hurdle",
+    "aim": "Two teams will be competing against each other in a relay race where an object will be place midway between the team and the marker. The object may be physical e.g a hurdle or an activity e.g. 5 push ups.",
+    "description": "Two teams will be appropriately positioned to begin this race. When the whistle is blown the first swayamsevaks in each team will run to the marker in the boundary and place the stone on the marker. When he returns to the team the next swayamsevak will commence running. He will run to the marker, pick up the stone and return it to the next runner. He will then run to the marker and place the stone on the marker,. So on and so forth the relay race will continue. However there will also be an object placed mid way between the team and the marker, where the runner will need to jump or conduct an activity e.g. 5 press ups as part of the race. The first team to finish will win the race.",
+    "category": "Team"
+  },
+  {
+    "name": "Mandal Se Khincho",
+    "meaning": "Pull out of a circle",
+    "aim": "Survival and courage of the fittest. A single swayamsevak will be responsible for pulling other swayamsevaks out of a circle.",
+    "description": "All swayamsevaks bar one catcher will be gathered within a specified mandal (circle). When the whistle is blown the catcher will attempt to pull swayamsevaks out of the mandal. The Shikshak can make the task harder by allowing swayamsevaks to wrestle etc",
+    "category": "Team"
+  },
+  {
+    "name": "Mandal Yudhha",
+    "meaning": "Circle fight",
+    "aim": "Survival of the fittest teams. Two teams will be competing to overpower and deplete the manpower of the opposing team.",
+    "description": "Two teams will have swayamsevaks facing members of the opposite team on the perimeter of a circle. The swayamsevaks in the outer circle will attempt to pull the inner circle swayamsevaks out of the inner circle. The inner circle must resist and will attempt to place the opposing swayamsevaks back on the floor. Those swayamsevaks who are pulled out or whose backs touch the floor will be out. The team with the last remaining swayamsevak will win.",
+    "category": "Team"
+  },
+  {
+    "name": "Naukaa Yudhdha",
+    "meaning": "Boat Fight",
+    "aim": "swayamsevaks will group themselves into boats and will try and break up other boats or push them out of the area",
+    "description": "The swayamsevaks shall be in minimum groups of three. They will face inwards and link arms to form a single unit Nauka . When the whistle is blown they must fight to push each other out of the area. Those who are removed from the circle, or break the links are out.",
+    "category": "Team"
+  },
+  {
+    "name": "Pathar Vahan",
+    "meaning": "Stone Relay",
+    "aim": "Two teams will be competing against each other in a relay race where a stone (relay race baton) is continually placed and returned in this race",
+    "description": "Two teams will be appropriately positioned to begin this race. When the whistle is blown the first swayamsevaks in each team will run to the marker in the boundary and place the stone on the marker. When they return to the team the next swayamsevak will commence running. He will run to the marker, pick up the stone and return it to the next runner. He will then run to the marker and place the stone on the marker,. So on and so forth the relay race will continue. The first team to finish will win the race.",
+    "category": "Team"
+  },
+  {
+    "name": "Raam - Raavan",
+    "meaning": "Two teams each named Ram & Raavan - key characters from the Ramayanna",
+    "aim": "To catch or run away from your opposing team based on the team name given by the Shikshak.",
+    "description": "The two teams named Raam and Ravaana will each be standing in separate lines so that players on both teams are next to each other. When the order Raam is given the Raam swayamsevaks will attempt to run to the edge of the boundary as soon as possible. At the same time the Ravaan swayamsevaks will try and catch the Raam swayamsevaks. Similarly when the Raavan order is given, the Raavan swayamsevaks will run and the Raam swayamsevaks will attempt to catch them. swayamsevaks caught will be out. If the order Raja is given then nobody should move, those that do move will be out. The team with the most number of swayamsevaks remaining will win.",
+    "category": "Team"
+  },
+  {
+    "name": "Rasshee Kheencha",
+    "meaning": "Rope Pull (Tug of War)",
+    "aim": "Team work and test of team strength.",
+    "description": "Two teams will be lined up at either side of a single rope, in the middle of which is tied a handkerchief. When the whistle is blown the teams will pull the rope. The team which pulls it enough for the handkerchief to pass a predefined point wins.",
+    "category": "Team"
+  },
+  {
+    "name": "Saathi Chalo",
+    "meaning": "Lets walk together",
+    "aim": "swayamsevaks with different numbers will try and get together, form a chain and report them to the shikshak",
+    "description": "swayamsevaks in each team will be allocated a unique number. The two teams will then be distributed in the area. When the shikshak shouts out a series of numbers, swayamsevaks with those teams from the same team will need to form a chain and report themselves to the shikshak.",
+    "category": "Team"
+  },
+  {
+    "name": "Sarpa Nidra",
+    "meaning": "Sarpa - Snake, Nidra -Sleep",
+    "aim": "Two teams will form a human snake as per description below, and then will participate in the sleep snake race and awaken sleep . The first to forms the snake will be the winner.",
+    "description": "The first player puts his left hand between his legs. The second swayamsevak will then hold the first swayamsevak left hand with his right hand, whilst also placing his own left hand between his own legs. The third swayamsevak does exactly the same as the second and so forth until the whole team has formed a snake . The sleep race is when the last swayamsevak lies down as everyone moves back. As soon as the last swayamsevak is flat on his back As soon as the last is on his back, the second swayamsevak will start to lie on his back and so on until the whole team is on the ground. Note, the link between the swayamsevaks should not break. The awaken race is too see which team can stand up first. To stand up, the last swayamsevak to lie flat on the ground on the ground will be the first to stand up and so on until the whole team is standing.",
+    "category": "Team"
+  },
+  {
+    "name": "Surang",
+    "meaning": "Tunnel",
+    "aim": "Test of courage as swayamsevak walk through a human tunnel as they get slapped on their backs",
+    "description": "Two teams will be standing in parallel lines facing each other. Starting at one end, one swayamsevak at a time from each team in turn will pass through the tunnel. Whilst they do so, the remaining swayamsevaks who will be standing on their lines, must slap with a flat hand the swayamsevak passing through the tunnel.",
+    "category": "Team"
+  },
+  {
+    "name": "Udatee Machhallee",
+    "meaning": "Udatee -Flying Machhalle Fish",
+    "aim": "Work within a team to ensure a human hand bridge path is formed to enable a swayamsevak to reach a predefined marker. The first team to reach that marker wins",
+    "description": "In each team a swayamsevak will be nominated as the fish . The other members of the team will form two parallel lines facing each other, in which the swayamsevak directly opposite each other will form pairs by joining hands. Thus each team will have formed a bridge. The fish will then jump upwards and forwards thus making it move along the bridge. Once the fish passes through the first set of swayamsevaks they will run to the end of the line before the fish gets there.",
+    "category": "Team"
+  },
+  {
+    "name": "Aakash Panee Jameen Agni",
+    "meaning": "Aakash - sky, Panee - water, Jameen - ground, Agni - fire",
+    "aim": "For each swayamsevak to name a living being",
+    "description": "One swayamsevak will go to each swayamsevak and say either aakash, panee, jameen or agni. The swayamsevaks have to reply by naming a living being. For example, if swayamsevaks says Panee then swayamsevaks can reply by saying maghar (crocodile). swayamsevaks cannot say fish, because there many different species of fish. swayamsevaks have to be specific. Also, they should not reply if Agni is said, because no living being is alive in fire. If any swayamsevaks makes a mistake they will be out of the game.",
+    "category": "Sitting down"
+  },
+  {
+    "name": "Aisaa Karo Vaisaa Karo",
+    "meaning": "Do it this way or that way",
+    "aim": "To only follow the shikshaks actions when he says Aisaa Karo",
+    "description": "Shikshak will shout Aisaa Karo or Vaisaa Karo and does an action like raise both his hands. swayamsevaks follow his actions only if he says Aisaa Karo. Those swayamsevaks who does the action in vaisaa karo or don t do the action in aisaa karo will be out of the game.",
+    "category": "Sitting down"
+  },
+  {
+    "name": "Andhene Vastu Rakhanaa",
+    "meaning": "Andhene - blind-person, Vastu - objects, Rakhanaa - place",
+    "aim": "For each swayamsevak to pace an object in a small circle whilst blind-folded.",
+    "description": "All swayamsevaks will on the perimeter of a large circle. Turn by turn each swayamsevak will be blind- folded, and will be asked to place an object inside a smaller circle. Those swayamsevaks who fail place the object inside the smaller circle will be out of the game.",
+    "category": "Sitting down"
+  },
+  {
+    "name": "Ghodaa Paanee",
+    "meaning": "Ghoodaa - horse, Paanee - water",
+    "aim": "For the Ghodaa to go for the water",
+    "description": "The game is played in pairs. One swayamsevak will make a fist, but with the thumb sticking out upwards. This will act like a horse. The other swayamsevak will hold his hands together in namaste position, and rubbing the palms of his hands continuously. This will act as water. The horse and water will be fairly close together. When kuru is given, the horse will try to go for the water, by slapping his opponent's back of the hand. If the horse gets the water then they retain their original position and roles, and the game will continue, otherwise the roles will be reversed.",
+    "category": "Sitting down"
+  },
+  {
+    "name": "Khambese Bacho",
+    "meaning": "Khambese - pillar, Bacho - survive",
+    "aim": "To avoid getting crushed by a swayamsevak",
+    "description": "Initially, all swayamsevaks will be sitting down tightly in a circle, with their legs stretched out towards the centre of the circle. One swayamsevak will stand in the centre of the circle in a rigid position (as if he were a pillar) with hands on his sides. When kuru is given, the swayamsevak in the centre will fall gently towards the swayamsevaks whilst still in the rigid form. The other swayamsevaks will push him away so avoiding getting crushed. If any swayamsevak cannot push the swayamsevak away, then he will swap with him.",
+    "category": "Sitting down"
+  },
+  {
+    "name": "Khayenge",
+    "meaning": "Khayenge - I can eat!",
+    "aim": "To avoid getting caught out with items which are not edible",
+    "description": "Shikshak will shout items to swayamsevaks at a time, which are edible. The swayamsevak will respond by saying Khayenge and doing eating action. If when shikshak shouts an item which is not edible and the swayamsevaks says Khayenge or does eating action then he will be out of the game.",
+    "category": "Sitting down"
+  },
+  {
+    "name": "Pathar Girana",
+    "meaning": "Pathar - pebble, Girana - drop",
+    "aim": "To force other swayamsevaks to drop their pebble",
+    "description": "All swayamsevaks will have a their right arm stretched out with a pebble lying on their right palm. Their left arm will remain behind their body. When kuru is given, each swayamsevak will use their sides of the body to push other swayamsevaks to force the pebble to drop out of their palm. The last swayamsevak left with the pebble still in their palm will be the winner.",
+    "category": "Sitting down"
+  },
+  {
+    "name": "Neer Teer",
+    "meaning": "Neer - sea, Teer - shore",
+    "aim": "To follow the shikshak's instructions when he shouts out either Neer or Teer",
+    "description": "Initially, all swayamsevaks will stand outside the circle. When shikshak shouts out Neer everyone will jump forward inside the circle. When Teer is shouted out then everyone jumps backward outside the circle. You don t do the action if the same order is given successively. Those swayamsevaks who makes a mistake will be out of the game.",
+    "category": "Sitting down"
+  },
+  {
+    "name": "Netaa Pahachaano",
+    "meaning": "Netaa means leader and Pahachaano means identify.",
+    "aim": "To identify the leader",
+    "description": "One swayamsevak will be the leader, and another swayamsevak will try to identify who the leader is. He will be asked to close his eyes, so the leader can be chosen. When kuru is given, the leader will start to clap or pat his head etc, and the rest of the swayamsevaks will follow his actions. The lone swayamsevak will try to find out who the leader is.",
+    "category": "Sitting down"
+  },
+  {
+    "name": "Nischit Antar",
+    "meaning": "Nischit - determine, Antar - distance",
+    "aim": "For one swayamsevak to track down other swayamsevaks.",
+    "description": "One swayamsevak will be blind-folded. He will ask each swayamsevak to take 3 to 8 steps in any direction. After the swayamsevak has done that, then he will also take the same number of steps. Once he finishes his last step, he will reach out and try to touch the swayamsevak. If he touches the swayamsevak then that swayamsevak will be out of the game.",
+    "category": "Sitting down"
+  },
+  {
+    "name": "Prashnottarse Netaa Pahachaano",
+    "meaning": "Prashna - question, oottarse - answer, Netaa - leader , Pahachaano - identify",
+    "aim": "For one team to identify the leader by asking questions",
+    "description": "One team will choose a great hero/leader. Each member from the other team will ask one question turn by turn. The other team will reply with a yes or no answer. From the answers the team will try to identify the leader.",
+    "category": "Sitting down"
+  },
+  {
+    "name": "Ram-Krushna",
+    "meaning": "Names of gods - Rama & Krishna",
+    "aim": "Counting forward",
+    "description": "Starting from one swayamsevak, counting will start from one, with the following swayamsevaks increasing the number by one. However, any number divisible by 3, the swayamsevak says Rama instead of the number, and any number divisible by 5, the swayamsevak says Krishna. If the number is divisible by 3 and 5, then he says Ram Krushna. If any swayamsevak makes a mistake then he will be out of the game. The next swayamsevak after him will have to correct his mistake. The last swayamsevak left will be the winner.",
+    "category": "Sitting down"
+  },
+  {
+    "name": "Sangh Khel",
+    "meaning": "Sangh Games",
+    "aim": "Each swayamsevak to name a sangh khel",
+    "description": "Starting from one swayamsevak, he will say a name of a khel, then the next swayamsevak will say one and so forth. Any swayamsevaks who cannot name one or repeats a khel already said will be out of the game. The game will continue until one swayamsevak remains, and he will be the winner.",
+    "category": "Sitting down"
+  },
+  {
+    "name": "Vyakti Pahachaano",
+    "meaning": "Vyakti - person, pahachaano - identify",
+    "aim": "For one swayamsevak to identify other swayamsevaks",
+    "description": "One swayamsevak will be blind-folded, and he will wander around until he comes across a swayamsevak. He will ask one question to that swayamsevak. From the reply, he has to identify the swayamsevak. The swayamsevak who can identify the most swayamsevaks will be the winner.",
+    "category": "Sitting down"
+  },
+  {
+    "name": "Viparit Sankhya",
+    "meaning": "Reverse counting",
+    "aim": "To count backwards",
+    "description": "Starting from one swayamsevak, who will say the large number chosen by the shikshak, the next swayamsevaks will each decrease this number by one every time. If any swayamsevak makes a mistake then he will be out of the game. The next swayamsevak after him will have to correct his mistake.",
+    "category": "Sitting down"
+  },
+  {
+    "name": "Dand Fenk",
+    "meaning": "Throw the Dand",
+    "aim": "Test of courage and skill of catching and throwing a Dand",
+    "description": "Two teams will, each with a Dand will be situated in their separate areas. When the whistle is blown, one swayamsevak in each team will throw the dand into the air and at the same time will shout the name of a part of the body. In response, one of the other swayamsevaks from the same team must catch the dand and touch it to the appropriate part of the body. The first team to complete the process scores a point. The team to score the most points wins",
+    "category": "Dand"
+  },
+  {
+    "name": "Dand Pakado",
+    "meaning": "Hold the Dand!",
+    "aim": "Objective is to catch and stop the Dand from falling onto the ground when the shikshak lets go.",
+    "description": "All swayamsevaks will stand on the circumference of the circle and each is given a number. The shikshak will stand in the middle of the circle holding the dand at one end, whilst the other end is touch the ground. The shikshak will shout out a number and at the same time will let go of the dand. The swayamsevak whose number is called will quickly run to catch the dand before it falls onto the ground. Those who are not successful are out of the game. The radius of the circle can be increased to make the activity, more difficult.",
+    "category": "Dand"
+  },
+  {
+    "name": "Dand Ghumana",
+    "meaning": "Jump over the Dand",
+    "aim": "Test of agility and courage as the swayamsevak will need to jump over a rotating dand",
+    "description": "The shikshak will be in the centre of a circle rotating a horizontal dand. The other swayamsevaks will initially be on the edge of the circle and will try to jump over the dand without being hit by the rotating Dand",
+    "category": "Dand"
+  },
+  {
+    "name": "Dand Trikon",
+    "meaning": "Dand Pyramid",
+    "aim": "To form a pyramid with three dands, ensuring they do not fall down",
+    "description": "Three equally sized dands will be laid out in groups of three. When kuru is given, each swayamsevak must run to one group and use the dand to form a standing pyramid. The first team to finish win",
+    "category": "Dand"
+  },
+  {
+    "name": "Dand Uthaaon",
+    "meaning": "Pick up the Dand",
+    "aim": "Pick up a dand from tangled heap of dands without disturbing the other dands",
+    "description": "The dands shall be placed on the ground in a tangled heap. The swayamsevaks then take it turns to lift a dand from the pile making sure that no other dand is disturbed. If another dand moves the swayamsevak is out",
+    "category": "Dand"
+  },
+  {
+    "name": "Dand Zagadaa",
+    "meaning": "Win the Dand",
+    "aim": "A pair of swayamsevaks will compete to win the dand with their free hand whilst the other continues to hold onto the dand",
+    "description": "The swayamsevaks will be in pairs in which swayamsevak will be holding one end of the same dand with one hand. The swayamsevak will then use their free hands to wrestle control of the dand from the other swayamsevak and thereby win.",
+    "category": "Dand"
+  },
+  {
+    "name": "Dayaan - Baayaan Dand",
+    "meaning": "Dayaan - right, Bayaa - left",
+    "aim": "swayamsevaks will be test their agility as the order of Dayaan and Baayan is given. When the order is given the swayamsevak must grab the Dand to their right or left.",
+    "description": "Initially each swayamsevak will stand on the edge of a circle holding a dand vertically in front of himself with one dand. When the shikshak shouts Daayaan or Baayaan all the swayamsevaks will let go of the dands and try to grab hold of the next dand in the appropriate direction. Those swayamsevaks who fail to grab a dand or delay releasing their own dand will be out. The circle can be increased to make the game more difficult",
+    "category": "Dand"
+  },
+  {
+    "name": "Langadee Dand Kheencha",
+    "meaning": "Langadee - hop, Kheecha - Pull",
+    "aim": "Pull and grab control of the Dand whilst hopping",
+    "description": "The swayamsevaks will be in pairs in which each swayamsevak will be holding one end of the dand with both hands whilst standing on one leg. The aim is for each swayamsevak to struggle for the dand in such that the other swayamsevaks leg touches the ground, or lets go of the dand.",
+    "category": "Dand"
+  },
+  {
+    "name": "Svargaarohan",
+    "meaning": "Svarg - Heaven, Rohan - Raise",
+    "aim": "To work together in a team and form a platform with dands and lift a swayamsevak",
+    "description": "All the swayamsevaks will be standing on the edge of a circle holding a dand. They will then point the dands to the centre of the circle and thereby create platform in the centre. A nominated swayamsevak will then stand on the dand. Together they must raise the dand and thereby lift the swayamsevak",
+    "category": "Dand"
+  }
+]

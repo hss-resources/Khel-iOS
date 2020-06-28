@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,14 @@
 		7F58B25E24A8B2C500B722E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F58B25C24A8B2C500B722E0 /* Main.storyboard */; };
 		7F58B26024A8B2C500B722E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F58B25F24A8B2C500B722E0 /* Assets.xcassets */; };
 		7F58B26324A8B2C500B722E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F58B26124A8B2C500B722E0 /* LaunchScreen.storyboard */; };
+		7F58B26E24A8B63900B722E0 /* Khel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F58B26D24A8B63900B722E0 /* Khel.swift */; };
+		7F58B27224A8B90C00B722E0 /* BrowseKhelsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F58B27124A8B90C00B722E0 /* BrowseKhelsVC.swift */; };
+		7F58B27424A8B93C00B722E0 /* KhellCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F58B27324A8B93C00B722E0 /* KhellCell.swift */; };
+		7F58B27824A8C1DD00B722E0 /* GradientSquircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F58B27724A8C1DD00B722E0 /* GradientSquircle.swift */; };
+		7FAACA1724A8EAA60099EC36 /* KhelDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAACA1624A8EAA60099EC36 /* KhelDetailVC.swift */; };
+		7FAACA1A24A8EE2F0099EC36 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAACA1924A8EE2F0099EC36 /* Extension+UIViewController.swift */; };
+		7FBB963D24A8D31E00E25BE9 /* khel.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FBB963C24A8D31E00E25BE9 /* khel.json */; };
+		7FBB963F24A8DCCE00E25BE9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB963E24A8DCCE00E25BE9 /* Theme.swift */; };
 		F671D74005CBF2BE77E4F6A3 /* Pods_Khel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F00D55CD9A5C601EF97BDF2D /* Pods_Khel.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +35,14 @@
 		7F58B25F24A8B2C500B722E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F58B26224A8B2C500B722E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F58B26424A8B2C500B722E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F58B26D24A8B63900B722E0 /* Khel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Khel.swift; sourceTree = "<group>"; };
+		7F58B27124A8B90C00B722E0 /* BrowseKhelsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseKhelsVC.swift; sourceTree = "<group>"; };
+		7F58B27324A8B93C00B722E0 /* KhellCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhellCell.swift; sourceTree = "<group>"; };
+		7F58B27724A8C1DD00B722E0 /* GradientSquircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientSquircle.swift; sourceTree = "<group>"; };
+		7FAACA1624A8EAA60099EC36 /* KhelDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhelDetailVC.swift; sourceTree = "<group>"; };
+		7FAACA1924A8EE2F0099EC36 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
+		7FBB963C24A8D31E00E25BE9 /* khel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = khel.json; sourceTree = "<group>"; };
+		7FBB963E24A8DCCE00E25BE9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		AB0C7D12BC34642D9530893F /* Pods-Khel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Khel.release.xcconfig"; path = "Target Support Files/Pods-Khel/Pods-Khel.release.xcconfig"; sourceTree = "<group>"; };
 		C20AC9E6D33D4638D0219CD0 /* Pods-Khel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Khel.debug.xcconfig"; path = "Target Support Files/Pods-Khel/Pods-Khel.debug.xcconfig"; sourceTree = "<group>"; };
 		F00D55CD9A5C601EF97BDF2D /* Pods_Khel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Khel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,12 +93,60 @@
 				7F58B25624A8B2C500B722E0 /* SceneDelegate.swift */,
 				7F58B25824A8B2C500B722E0 /* FirstViewController.swift */,
 				7F58B25A24A8B2C500B722E0 /* SecondViewController.swift */,
+				7FBB963B24A8D30D00E25BE9 /* Assets */,
 				7F58B25C24A8B2C500B722E0 /* Main.storyboard */,
+				7F58B26F24A8B64900B722E0 /* Models */,
+				7F58B26C24A8B5EE00B722E0 /* VCs */,
+				7FAACA1824A8EE140099EC36 /* Extensions */,
+				7F58B27024A8B8F800B722E0 /* Components */,
 				7F58B25F24A8B2C500B722E0 /* Assets.xcassets */,
 				7F58B26124A8B2C500B722E0 /* LaunchScreen.storyboard */,
 				7F58B26424A8B2C500B722E0 /* Info.plist */,
 			);
 			path = Khel;
+			sourceTree = "<group>";
+		};
+		7F58B26C24A8B5EE00B722E0 /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				7F58B27124A8B90C00B722E0 /* BrowseKhelsVC.swift */,
+				7FAACA1624A8EAA60099EC36 /* KhelDetailVC.swift */,
+			);
+			path = VCs;
+			sourceTree = "<group>";
+		};
+		7F58B26F24A8B64900B722E0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7F58B26D24A8B63900B722E0 /* Khel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7F58B27024A8B8F800B722E0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7F58B27324A8B93C00B722E0 /* KhellCell.swift */,
+				7F58B27724A8C1DD00B722E0 /* GradientSquircle.swift */,
+				7FBB963E24A8DCCE00E25BE9 /* Theme.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		7FAACA1824A8EE140099EC36 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7FAACA1924A8EE2F0099EC36 /* Extension+UIViewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7FBB963B24A8D30D00E25BE9 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				7FBB963C24A8D31E00E25BE9 /* khel.json */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		943CBFE5654C7116C9DC516A /* Pods */ = {
@@ -91,7 +155,6 @@
 				C20AC9E6D33D4638D0219CD0 /* Pods-Khel.debug.xcconfig */,
 				AB0C7D12BC34642D9530893F /* Pods-Khel.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -156,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F58B26324A8B2C500B722E0 /* LaunchScreen.storyboard in Resources */,
+				7FBB963D24A8D31E00E25BE9 /* khel.json in Resources */,
 				7F58B26024A8B2C500B722E0 /* Assets.xcassets in Resources */,
 				7F58B25E24A8B2C500B722E0 /* Main.storyboard in Resources */,
 			);
@@ -210,10 +274,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FBB963F24A8DCCE00E25BE9 /* Theme.swift in Sources */,
+				7F58B26E24A8B63900B722E0 /* Khel.swift in Sources */,
 				7F58B25B24A8B2C500B722E0 /* SecondViewController.swift in Sources */,
 				7F58B25924A8B2C500B722E0 /* FirstViewController.swift in Sources */,
+				7F58B27224A8B90C00B722E0 /* BrowseKhelsVC.swift in Sources */,
 				7F58B25524A8B2C500B722E0 /* AppDelegate.swift in Sources */,
+				7F58B27424A8B93C00B722E0 /* KhellCell.swift in Sources */,
+				7FAACA1724A8EAA60099EC36 /* KhelDetailVC.swift in Sources */,
+				7FAACA1A24A8EE2F0099EC36 /* Extension+UIViewController.swift in Sources */,
 				7F58B25724A8B2C500B722E0 /* SceneDelegate.swift in Sources */,
+				7F58B27824A8C1DD00B722E0 /* GradientSquircle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +432,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GJ6558HKQT;
 				INFOPLIST_FILE = Khel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -380,6 +452,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GJ6558HKQT;
 				INFOPLIST_FILE = Khel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
