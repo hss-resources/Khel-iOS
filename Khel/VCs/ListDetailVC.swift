@@ -52,6 +52,8 @@ class ListDetailVC: UITableViewController {
 }
 
 extension ListDetailVC: KhelCellDelegate {
+    
+    //TODO: Change to remove from list
     func addToList(_ khel: Khel) {
         let allLists = PlistManager.get(Lists.self, from: String(describing: Lists.self)) ?? Lists()
         let ac = UIAlertController(title: khel.name, message: "Select a list to add this khel:", preferredStyle: .alert)
