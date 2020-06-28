@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Khel: Codable {
+struct Khel: Codable, Equatable {
     let name: String
     let meaning: String
     let aim: String

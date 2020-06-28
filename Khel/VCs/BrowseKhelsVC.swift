@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import PlistManager
+import StatusAlert
 
 class BrowseKhelsVC: UITableViewController {
 
@@ -158,7 +160,26 @@ class BrowseKhelsVC: UITableViewController {
 
 extension BrowseKhelsVC: KhelCellDelegate {
     func addToList(_ khel: Khel) {
-        print("add \(khel.name)")
+        let allLists = PlistManager.get(Lists.self, from: String(describing: Lists.self)) ?? Lists()
+        let ac = UIAlertController(title: khel.name, message: "Select a list to add this khel:", preferredStyle: .alert)
+        
+        allLists.payload.forEach { list in
+            let action = UIAlertAction(title: list.name, style: .default) { _ in
+                list.list.append(khel)
+                PlistManager.save(allLists, plistName: String(describing: Lists.self))
+            }
+            ac.addAction(action)
+        }
+        
+        let newList = UIAlertAction(title: "New list", style: .default) { _ in
+            allLists.payload.append(List(name: "List \(allLists.payload.count + 1)", list: [khel]))
+            PlistManager.save(allLists, plistName: String(describing: Lists.self))
+        }
+        ac.addAction(newList)
+        
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        present(ac, animated: true)
     }
     
     func moreInfo(_ khel: Khel) {

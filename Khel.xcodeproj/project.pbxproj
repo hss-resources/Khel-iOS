@@ -14,7 +14,10 @@
 		7F58B26324A8B2C500B722E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F58B26124A8B2C500B722E0 /* LaunchScreen.storyboard */; };
 		7F58B26E24A8B63900B722E0 /* Khel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F58B26D24A8B63900B722E0 /* Khel.swift */; };
 		7F58B27224A8B90C00B722E0 /* BrowseKhelsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F58B27124A8B90C00B722E0 /* BrowseKhelsVC.swift */; };
-		7F58B27424A8B93C00B722E0 /* KhellCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F58B27324A8B93C00B722E0 /* KhellCell.swift */; };
+		7F58B27424A8B93C00B722E0 /* KhelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F58B27324A8B93C00B722E0 /* KhelCell.swift */; };
+		7F6DD0FD24A921AE00A99AA7 /* PlistStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DD0FC24A921AE00A99AA7 /* PlistStructs.swift */; };
+		7F6DD0FF24A92AB600A99AA7 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DD0FE24A92AB600A99AA7 /* ListCell.swift */; };
+		7F6DD10124A92B8E00A99AA7 /* ListsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DD10024A92B8E00A99AA7 /* ListsVC.swift */; };
 		7FAACA1724A8EAA60099EC36 /* KhelDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAACA1624A8EAA60099EC36 /* KhelDetailVC.swift */; };
 		7FAACA1A24A8EE2F0099EC36 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAACA1924A8EE2F0099EC36 /* Extension+UIViewController.swift */; };
 		7FBB963D24A8D31E00E25BE9 /* khel.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FBB963C24A8D31E00E25BE9 /* khel.json */; };
@@ -32,7 +35,10 @@
 		7F58B26424A8B2C500B722E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F58B26D24A8B63900B722E0 /* Khel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Khel.swift; sourceTree = "<group>"; };
 		7F58B27124A8B90C00B722E0 /* BrowseKhelsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseKhelsVC.swift; sourceTree = "<group>"; };
-		7F58B27324A8B93C00B722E0 /* KhellCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhellCell.swift; sourceTree = "<group>"; };
+		7F58B27324A8B93C00B722E0 /* KhelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhelCell.swift; sourceTree = "<group>"; };
+		7F6DD0FC24A921AE00A99AA7 /* PlistStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistStructs.swift; sourceTree = "<group>"; };
+		7F6DD0FE24A92AB600A99AA7 /* ListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
+		7F6DD10024A92B8E00A99AA7 /* ListsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsVC.swift; sourceTree = "<group>"; };
 		7FAACA1624A8EAA60099EC36 /* KhelDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhelDetailVC.swift; sourceTree = "<group>"; };
 		7FAACA1924A8EE2F0099EC36 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		7FBB963C24A8D31E00E25BE9 /* khel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = khel.json; sourceTree = "<group>"; };
@@ -103,6 +109,7 @@
 			children = (
 				7F58B27124A8B90C00B722E0 /* BrowseKhelsVC.swift */,
 				7FAACA1624A8EAA60099EC36 /* KhelDetailVC.swift */,
+				7F6DD10024A92B8E00A99AA7 /* ListsVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -111,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				7F58B26D24A8B63900B722E0 /* Khel.swift */,
+				7F6DD0FC24A921AE00A99AA7 /* PlistStructs.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -118,7 +126,8 @@
 		7F58B27024A8B8F800B722E0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				7F58B27324A8B93C00B722E0 /* KhellCell.swift */,
+				7F58B27324A8B93C00B722E0 /* KhelCell.swift */,
+				7F6DD0FE24A92AB600A99AA7 /* ListCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -287,10 +296,13 @@
 				7FBB963F24A8DCCE00E25BE9 /* Theme.swift in Sources */,
 				7F58B26E24A8B63900B722E0 /* Khel.swift in Sources */,
 				7F58B27224A8B90C00B722E0 /* BrowseKhelsVC.swift in Sources */,
+				7F6DD0FF24A92AB600A99AA7 /* ListCell.swift in Sources */,
 				7F58B25524A8B2C500B722E0 /* AppDelegate.swift in Sources */,
-				7F58B27424A8B93C00B722E0 /* KhellCell.swift in Sources */,
+				7F58B27424A8B93C00B722E0 /* KhelCell.swift in Sources */,
 				7FAACA1724A8EAA60099EC36 /* KhelDetailVC.swift in Sources */,
+				7F6DD10124A92B8E00A99AA7 /* ListsVC.swift in Sources */,
 				7FAACA1A24A8EE2F0099EC36 /* Extension+UIViewController.swift in Sources */,
+				7F6DD0FD24A921AE00A99AA7 /* PlistStructs.swift in Sources */,
 				7F58B25724A8B2C500B722E0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
