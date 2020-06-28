@@ -10,7 +10,7 @@ import UIKit
 
 class BrowseKhelsVC: UITableViewController {
 
-    enum SortMethod: String {
+    enum SortMethod: String, CaseIterable {
         case alphabetical = "A to Z"
         case random = "Randomise"
         case byCategory = "By category"
@@ -105,7 +105,7 @@ class BrowseKhelsVC: UITableViewController {
         
         let filterView = UIView()
         
-        let vStack = UIStackView(arrangedSubviews: Khel.Category.allCases.map({
+        let switches: [UIView] = Khel.Category.allCases.map({
             let label = UILabel()
             label.font = .systemFont(ofSize: 15, weight: .semibold)
             label.text = $0.rawValue
@@ -114,7 +114,21 @@ class BrowseKhelsVC: UITableViewController {
             onSwtich.tag = Khel.Category.allCases.firstIndex(of: $0) ?? 0
             onSwtich.addTarget(self, action: #selector(switchToggled(_:)), for: .valueChanged)
             return UIStackView(arrangedSubviews: [label, onSwtich])
-        }))
+        })
+        
+        let sortLabel = UILabel()
+        sortLabel.text = "Sort method:"
+        sortLabel.font = .systemFont(ofSize: 13, weight: .bold)
+        sortLabel.textColor = .secondaryLabel
+        
+        let categoryLabel = UILabel()
+        categoryLabel.text = "Categories:"
+        categoryLabel.font = .systemFont(ofSize: 13, weight: .bold)
+        categoryLabel.textColor = .secondaryLabel
+        
+        let filterViews = [sortLabel, categoryLabel]
+        
+        let vStack = UIStackView(arrangedSubviews: filterViews + switches)
         vStack.axis = .vertical
         vStack.alignment = .fill
         vStack.distribution = .equalSpacing
