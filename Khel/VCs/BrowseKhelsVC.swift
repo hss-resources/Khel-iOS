@@ -182,8 +182,4 @@ extension BrowseKhelsVC: KhelCellDelegate {
         present(ac, animated: true)
     }
     
-    func moreInfo(_ khel: Khel) {
-        present(KhelDetailVC(khel), animated: true)
-    }
-    
 }

@@ -10,10 +10,17 @@ import UIKit
 import JSSquircle
 import LessAutolayoutBoilerplate
 
+protocol ListCellDelegate: class {
+    func shareList(_ list: List)
+}
+
 class ListCell: UITableViewCell {
     
     //TODO: Ability to delete lists
     //TODO: Ability to remove khels from lists
+    
+    private var list: List?
+    weak private var delegate: ListCellDelegate?
     
     private let nameLabel: UILabel = {
         let label = UILabel()
@@ -39,7 +46,7 @@ class ListCell: UITableViewCell {
         return label
     }()
     
-    private let addButton: UIButton = {
+    private let shareButton: UIButton = {
         let button = UIButton()
         button.setTitle("Share", for: .normal)
         let smallConfiguration = UIImage.SymbolConfiguration(scale: .small)
@@ -82,12 +89,12 @@ class ListCell: UITableViewCell {
         lineView.backgroundColor = .tertiaryLabel
         lineView.pinWidth(1)
         
-        frontView.add(addButton, infoButton, lineView)
-        addButton.pinTo(top: 0, bottom: 0, left: 0)
+        frontView.add(shareButton, infoButton, lineView)
+        shareButton.pinTo(top: 0, bottom: 0, left: 0)
         infoButton.pinTo(top: 0, bottom: 0, right: 0)
         lineView.pinTo(top: 0, bottom: 0)
         lineView.alignXAxis()
-        addButton.trailingAnchor.constraint(equalTo: lineView.leadingAnchor).isActive = true
+        shareButton.trailingAnchor.constraint(equalTo: lineView.leadingAnchor).isActive = true
         lineView.trailingAnchor.constraint(equalTo: infoButton.leadingAnchor).isActive = true
         
         return bgView
@@ -128,18 +135,24 @@ class ListCell: UITableViewCell {
         contentView.add(bgSquircle)
         bgSquircle.pinTo(top: 16, bottom: 0, left: 16, right: 16)
         
+        shareButton.addTarget(self, action: #selector(shareList), for: .touchUpInside)
+        
     }
     
-    func update(_ list: List) {
+    func update(_ list: List, delegate: ListCellDelegate) {
         nameLabel.text = list.name
-        
-        descriptionLabel.text = list.list.enumerated().map({ index, khel -> String in
-            "\(index+1). \(khel.name)"
-        }).joined(separator: "\n")
-        
+        descriptionLabel.text = list.enumeratedList
+        self.delegate = delegate
+        self.list = list
         //categoryLabel.text = khel.category.rawValue
         //categoryContainer.backgroundColor = khel.category.color
         
+    }
+    
+    @objc private func shareList() {
+        if let list = list {
+            delegate?.shareList(list)
+        }
     }
     
 }

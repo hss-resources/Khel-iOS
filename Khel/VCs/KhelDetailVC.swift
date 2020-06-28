@@ -126,7 +126,7 @@ class KhelDetailVC: UIViewController {
     // MARK: Actions
     //================================================================================
     
-    // Add share, add to list, spotted something wrong? buttons
+    //TODO: Add share, add to list, spotted something wrong? buttons
 
 }
 

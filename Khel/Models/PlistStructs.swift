@@ -19,4 +19,10 @@ class List: Codable {
         self.list = list
     }
     
+    var enumeratedList: String {
+        list.enumerated().map({ index, khel -> String in
+            "\(index+1). \(khel.name)"
+        }).joined(separator: "\n")
+    }
+    
 }

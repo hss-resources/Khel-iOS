@@ -12,7 +12,6 @@ import LessAutolayoutBoilerplate
 
 protocol KhelCellDelegate: class {
     func addToList(_ khel: Khel)
-    func moreInfo(_ khel: Khel)
 }
 
 class KhelCell: UITableViewCell {
@@ -66,6 +65,7 @@ class KhelCell: UITableViewCell {
         button.setTitleColor(.secondaryLabel, for: .normal)
         button.tintColor = .secondaryLabel
         button.backgroundColor = .tertiarySystemBackground
+        button.isUserInteractionEnabled = false
         
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -4, bottom: 0, right: 0)
@@ -132,7 +132,6 @@ class KhelCell: UITableViewCell {
         bgSquircle.pinTo(top: 16, bottom: 0, left: 16, right: 16)
         
         addButton.addTarget(self, action: #selector(addToListAction), for: .touchUpInside)
-        infoButton.addTarget(self, action: #selector(moreInfoAction), for: .touchUpInside)
     }
     
     func update(_ khel: Khel, delegate: KhelCellDelegate) {
@@ -152,12 +151,6 @@ class KhelCell: UITableViewCell {
     @objc private func addToListAction() {
         if let khel = khel {
             delegate?.addToList(khel)
-        }
-    }
-    
-    @objc private func moreInfoAction() {
-        if let khel = khel {
-            delegate?.moreInfo(khel)
         }
     }
     

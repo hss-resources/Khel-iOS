@@ -54,7 +54,7 @@ class ListsVC: UITableViewController {
         case .existing:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ListCell.self), for: indexPath) as? ListCell,
                 let list = PlistManager.get(Lists.self, from: String(describing: Lists.self))?.payload[indexPath.row] else { return UITableViewCell() }
-            cell.update(list)
+            cell.update(list, delegate: self)
             return cell
         case .none:
             return UITableViewCell()
@@ -66,4 +66,12 @@ class ListsVC: UITableViewController {
 
     }
 
+}
+
+extension ListsVC: ListCellDelegate {
+    func shareList(_ list: List) {
+        let items = ["\(list.name)\n\(list.enumeratedList)"]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(ac, animated: true)
+    }
 }
