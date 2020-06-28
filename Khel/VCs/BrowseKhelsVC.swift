@@ -151,5 +151,4 @@ extension BrowseKhelsVC: KhelCellDelegate {
         present(KhelDetailVC(khel), animated: true)
     }
     
-    
 }

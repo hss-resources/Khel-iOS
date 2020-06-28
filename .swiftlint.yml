@@ -1,0 +1,22 @@
+disabled_rules: # rule identifiers to exclude from running
+    - trailing_whitespace
+    - identifier_name
+    - line_length
+    - function_parameter_count
+    - large_tuple
+    - cyclomatic_complexity
+    - implicit_getter
+    - file_length
+# parameterized rules can be customized from this configuration file
+line_length: 220
+
+# These require attention in the app
+function_body_length: 100
+file_length: 400
+type_body_length: 400
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Pods
+  - CustomPods/Lottie
+# parameterized rules can be customized from this configuration file
+# line_length: 200

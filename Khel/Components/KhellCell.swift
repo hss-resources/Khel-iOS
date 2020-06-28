@@ -10,7 +10,7 @@ import UIKit
 import JSSquircle
 import LessAutolayoutBoilerplate
 
-protocol KhelCellDelegate: UIViewController {
+protocol KhelCellDelegate: class {
     func addToList(_ khel: Khel)
     func moreInfo(_ khel: Khel)
 }
