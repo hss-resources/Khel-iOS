@@ -72,6 +72,7 @@ class BrowseKhelsVC: UITableViewController {
         tableView.backgroundColor = .secondarySystemBackground
         tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.estimatedSectionHeaderHeight = 50
+        tableView.rowHeight = UITableView.automaticDimension
         
         filterKhels()
     }

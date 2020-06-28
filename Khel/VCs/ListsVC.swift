@@ -26,6 +26,7 @@ class ListsVC: UITableViewController {
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0)
         tableView.backgroundColor = .secondarySystemBackground
         tableView.sectionHeaderHeight = UITableView.automaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -63,7 +64,8 @@ class ListsVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        guard let list = PlistManager.get(Lists.self, from: String(describing: Lists.self))?.payload[indexPath.row] else { return }
+        present(ListDetailVC(list), animated: true)
     }
 
 }

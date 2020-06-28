@@ -18,6 +18,7 @@
 		7F6DD0FD24A921AE00A99AA7 /* PlistStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DD0FC24A921AE00A99AA7 /* PlistStructs.swift */; };
 		7F6DD0FF24A92AB600A99AA7 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DD0FE24A92AB600A99AA7 /* ListCell.swift */; };
 		7F6DD10124A92B8E00A99AA7 /* ListsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DD10024A92B8E00A99AA7 /* ListsVC.swift */; };
+		7F6DD10324A93AE400A99AA7 /* ListDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DD10224A93AE400A99AA7 /* ListDetailVC.swift */; };
 		7FAACA1724A8EAA60099EC36 /* KhelDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAACA1624A8EAA60099EC36 /* KhelDetailVC.swift */; };
 		7FAACA1A24A8EE2F0099EC36 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAACA1924A8EE2F0099EC36 /* Extension+UIViewController.swift */; };
 		7FBB963D24A8D31E00E25BE9 /* khel.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FBB963C24A8D31E00E25BE9 /* khel.json */; };
@@ -39,6 +40,7 @@
 		7F6DD0FC24A921AE00A99AA7 /* PlistStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistStructs.swift; sourceTree = "<group>"; };
 		7F6DD0FE24A92AB600A99AA7 /* ListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		7F6DD10024A92B8E00A99AA7 /* ListsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsVC.swift; sourceTree = "<group>"; };
+		7F6DD10224A93AE400A99AA7 /* ListDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDetailVC.swift; sourceTree = "<group>"; };
 		7FAACA1624A8EAA60099EC36 /* KhelDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhelDetailVC.swift; sourceTree = "<group>"; };
 		7FAACA1924A8EE2F0099EC36 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		7FBB963C24A8D31E00E25BE9 /* khel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = khel.json; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				7F58B27124A8B90C00B722E0 /* BrowseKhelsVC.swift */,
 				7FAACA1624A8EAA60099EC36 /* KhelDetailVC.swift */,
 				7F6DD10024A92B8E00A99AA7 /* ListsVC.swift */,
+				7F6DD10224A93AE400A99AA7 /* ListDetailVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				7F58B27224A8B90C00B722E0 /* BrowseKhelsVC.swift in Sources */,
 				7F6DD0FF24A92AB600A99AA7 /* ListCell.swift in Sources */,
 				7F58B25524A8B2C500B722E0 /* AppDelegate.swift in Sources */,
+				7F6DD10324A93AE400A99AA7 /* ListDetailVC.swift in Sources */,
 				7F58B27424A8B93C00B722E0 /* KhelCell.swift in Sources */,
 				7FAACA1724A8EAA60099EC36 /* KhelDetailVC.swift in Sources */,
 				7F6DD10124A92B8E00A99AA7 /* ListsVC.swift in Sources */,
