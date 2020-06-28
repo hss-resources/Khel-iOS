@@ -9,5 +9,6 @@ pod 'MBProgressHUD'
 pod 'JSSquircle'
 pod 'LessAutolayoutBoilerplate'
 pod 'AutolayoutGradient'
+pod 'PlistManager'
 
 end
