@@ -22,13 +22,17 @@ class ListsVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "My lists"
-                
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         tableView.register(ListCell.self, forCellReuseIdentifier: String(describing: ListCell.self))
         tableView.separatorStyle = .none
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0)
         tableView.backgroundColor = .secondarySystemBackground
-        tableView.sectionHeaderHeight = UITableView.automaticDimension
         tableView.rowHeight = UITableView.automaticDimension
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -67,7 +71,9 @@ class ListsVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let list = PlistManager.get(Lists.self, from: String(describing: Lists.self))?.payload[indexPath.row] else { return }
-        present(ListDetailVC(list), animated: true)
+        let nav = UINavigationController(rootViewController: ListDetailVC(list, index: indexPath.row))
+        nav.presentationController?.delegate = self
+        present(nav, animated: true)
     }
 
 }
@@ -77,5 +83,11 @@ extension ListsVC: ListCellDelegate {
         let items = ["\(list.name)\n\(list.enumeratedList)"]
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(ac, animated: true)
+    }
+}
+
+extension ListsVC: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
+        tableView.reloadData()
     }
 }

@@ -43,6 +43,11 @@ class KhelDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = khel.name
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.tintColor = .systemBlue
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark.circle"), style: .plain, target: self, action: #selector(close))
+        
         let categoryLabel = UILabel()
         categoryLabel.font = .systemFont(ofSize: 11, weight: .bold)
         categoryLabel.textColor = .systemBackground
@@ -52,11 +57,6 @@ class KhelDetailVC: UIViewController {
         categoryContainer.backgroundColor = khel.category.color
         categoryContainer.add(categoryLabel)
         categoryLabel.pinTo(top: 3, bottom: 3, left: 6, right: 6)
-        
-        let titleLabel = UILabel()
-        titleLabel.font = .systemFont(ofSize: 28, weight: .bold)
-        titleLabel.numberOfLines = 0
-        titleLabel.text = khel.name
         
         let meaningLabel = UILabel()
         meaningLabel.font = .systemFont(ofSize: 13, weight: .bold)
@@ -92,7 +92,6 @@ class KhelDetailVC: UIViewController {
         description.text = khel.description
         
         let vStack = UIStackView(arrangedSubviews: [categoryContainer,
-                                                    titleLabel,
                                                     meaningLabel,
                                                     meaning,
                                                     aimLabel,
@@ -110,16 +109,21 @@ class KhelDetailVC: UIViewController {
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         
         scrollView.add(vStack)
-        vStack.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 30).isActive = true
+        vStack.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 8).isActive = true
         vStack.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: vStack.trailingAnchor, constant: 20).isActive = true
         vStack.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -40).isActive = true
-        vStack.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 30).isActive = true
+        vStack.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 8).isActive = true
         
         view.backgroundColor = .secondarySystemBackground
         
-        addCloseButton()
-        
+    }
+    
+    @objc private func close() {
+        if let presentationVC = navigationController?.presentationController {
+            presentationVC.delegate?.presentationControllerWillDismiss?(presentationVC)
+        }
+        dismiss(animated: true)
     }
     
     //================================================================================

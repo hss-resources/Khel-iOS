@@ -1,5 +1,5 @@
 //
-//  TagFlow.swift
+//  TagView.swift
 //  Khel
 //
 //  Created by Janak Shah on 29/06/2020.
@@ -37,6 +37,8 @@ class TagView: UIView {
     }
     
     func update(_ tags: [Khel.Category]) {
+        
+        vStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
         
         let maxRowWidth = UIScreen.main.bounds.width - (16*4)
         var runningWidth: CGFloat = 0

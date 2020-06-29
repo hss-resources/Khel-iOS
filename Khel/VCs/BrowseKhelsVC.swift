@@ -77,6 +77,10 @@ class BrowseKhelsVC: UITableViewController {
         filterKhels()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     @objc private func toggleFilterDrawer() {
         filterOpen = !filterOpen
         tableView.reloadSections(IndexSet(integersIn: 0...0), with: .fade)
@@ -154,7 +158,7 @@ class BrowseKhelsVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        present(KhelDetailVC(filteredKhels[indexPath.row]), animated: true)
+        present(UINavigationController(rootViewController: KhelDetailVC(filteredKhels[indexPath.row])), animated: true)
     }
 
 }

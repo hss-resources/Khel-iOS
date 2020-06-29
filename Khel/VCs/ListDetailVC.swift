@@ -13,9 +13,11 @@ import StatusAlert
 class ListDetailVC: UITableViewController {
 
     private let list: List
+    private let index: Int
     
-    init(_ list: List) {
+    init(_ list: List, index: Int) {
         self.list = list
+        self.index = index
         super.init(style: .plain)
     }
     
@@ -27,12 +29,43 @@ class ListDetailVC: UITableViewController {
         super.viewDidLoad()
         self.title = list.name
         
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.tintColor = .systemBlue
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(editListName))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark.circle"), style: .plain, target: self, action: #selector(close))
+        
         tableView.register(KhelCell.self, forCellReuseIdentifier: String(describing: KhelCell.self))
         tableView.separatorStyle = .none
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0)
         tableView.backgroundColor = .secondarySystemBackground
-        tableView.sectionHeaderHeight = UITableView.automaticDimension
-        tableView.estimatedSectionHeaderHeight = 50
+    }
+    
+    @objc private func editListName() {
+        let ac = UIAlertController(title: "Rename list:", message: nil, preferredStyle: .alert)
+        ac.addTextField { [weak self] (textField) in
+            textField.placeholder = self?.list.name
+        }
+
+        let submitAction = UIAlertAction(title: "Save", style: .default) { [weak self, weak ac] action in
+            guard let newName = ac?.textFields?[0].text,
+            let self = self else { return }
+            let allLists = PlistManager.get(Lists.self, from: String(describing: Lists.self)) ?? Lists()
+            let thisList = allLists.payload[self.index]
+            thisList.name = newName
+            self.title = newName
+            PlistManager.save(allLists, plistName: String(describing: Lists.self))
+        }
+
+        ac.addAction(submitAction)
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(ac, animated: true)
+    }
+    
+    @objc private func close() {
+        if let presentationVC = navigationController?.presentationController {
+            presentationVC.delegate?.presentationControllerWillDismiss?(presentationVC)
+        }
+        dismiss(animated: true)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,7 +79,7 @@ class ListDetailVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        present(KhelDetailVC(list.list[indexPath.row]), animated: true)
+        present(UINavigationController(rootViewController: KhelDetailVC(list.list[indexPath.row])), animated: true)
     }
 
 }
