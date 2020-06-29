@@ -12,6 +12,8 @@ import StatusAlert
 
 class ListsVC: UITableViewController {
 
+    //TODO: Reload tableview when tapped
+    
     enum Section: Int, CaseIterable {
         case generate
         case existing

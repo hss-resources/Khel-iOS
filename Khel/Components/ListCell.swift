@@ -29,14 +29,7 @@ class ListCell: UITableViewCell {
         return label
     }()
     
-    private let categoryLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 11, weight: .bold)
-        label.textColor = .systemBackground
-        return label
-    }()
-    
-    private let categoryContainer = Squircle()
+    private let tagView = TagView()
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
@@ -115,12 +108,8 @@ class ListCell: UITableViewCell {
         let bgSquircle = Squircle()
         bgSquircle.cornerRadius = 16
         bgSquircle.backgroundColor = .systemBackground
-        
-        categoryContainer.cornerRadius = 6
-        categoryContainer.add(categoryLabel)
-        categoryLabel.pinTo(top: 3, bottom: 3, left: 6, right: 6)
-        
-        let vStack = UIStackView(arrangedSubviews: [nameLabel, categoryContainer, descriptionLabel])
+                
+        let vStack = UIStackView(arrangedSubviews: [nameLabel, tagView, descriptionLabel])
         vStack.axis = .vertical
         vStack.alignment = .leading
         vStack.distribution = .equalSpacing
@@ -146,7 +135,7 @@ class ListCell: UITableViewCell {
         self.list = list
         //categoryLabel.text = khel.category.rawValue
         //categoryContainer.backgroundColor = khel.category.color
-        
+        tagView.update(list.list.map { $0.category })
     }
     
     @objc private func shareList() {
