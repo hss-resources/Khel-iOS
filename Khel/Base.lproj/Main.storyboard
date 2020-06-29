@@ -6,11 +6,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Browse all-->
         <scene sceneID="zgs-UC-bqt">
             <objects>
                 <navigationController id="JXL-pT-xip" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="uKn-TR-Zfa"/>
+                    <tabBarItem key="tabBarItem" title="Browse all" image="text.justify" catalog="system" id="uKn-TR-Zfa"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OjW-gt-uTu">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -80,11 +80,11 @@
             </objects>
             <point key="canvasLocation" x="2451" y="1144"/>
         </scene>
-        <!--Item-->
+        <!--About-->
         <scene sceneID="iNL-9F-AM4">
             <objects>
                 <navigationController id="kuc-JU-wDJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ye8-tf-7Ml"/>
+                    <tabBarItem key="tabBarItem" title="About" image="gear" catalog="system" id="ye8-tf-7Ml"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="slV-KE-LX7">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -97,11 +97,11 @@
             </objects>
             <point key="canvasLocation" x="1533" y="1144"/>
         </scene>
-        <!--Item-->
+        <!--My lists-->
         <scene sceneID="Rus-tF-XaN">
             <objects>
                 <navigationController id="5vT-Zb-vu9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="XYb-l7-gtK"/>
+                    <tabBarItem key="tabBarItem" title="My lists" image="square.stack.3d.up" catalog="system" id="XYb-l7-gtK"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ntf-sD-IdQ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -134,4 +134,9 @@
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="square.stack.3d.up" catalog="system" width="128" height="124"/>
+        <image name="text.justify" catalog="system" width="128" height="100"/>
+    </resources>
 </document>
