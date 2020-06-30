@@ -17,7 +17,7 @@ protocol ListCellDelegate: class {
 class ListCell: UITableViewCell {
     
     //TODO: Ability to delete lists
-    //TODO: Ability to remove khels from lists
+    //TODO: Random generator (new list, or add to list)
     
     private var list: List?
     weak private var delegate: ListCellDelegate?

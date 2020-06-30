@@ -115,9 +115,7 @@ class BrowseKhelsVC: UITableViewController {
             header.pinHeight(1)
             return header
         }
-        
-        //TODO: Add sort method selector
-        
+                
         let filterView = UIView()
         
         let switches: [UIView] = Khel.Category.allCases.map({

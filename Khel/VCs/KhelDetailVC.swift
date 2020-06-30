@@ -117,49 +117,7 @@ class KhelDetailVC: UIViewController {
         topSquircle.cornerRadius = 16
         topSquircle.backgroundColor = .systemBackground
         
-        //Bottom View
-        
-        let bottomVStack = UIStackView()
-        bottomVStack.axis = .vertical
-        bottomVStack.distribution = .equalSpacing
-        bottomVStack.alignment = .fill
-        bottomVStack.spacing = 12
-        
-        switch useType {
-        case .alreadyInList:
-            break
-        case .browseAll:
-            let addToListButton = UIButton()
-            addToListButton.setTitle("Add to list", for: .normal)
-            addToListButton.backgroundColor = .secondarySystemBackground
-            styleButton(addToListButton, systemImage: "plus")
-            addToListButton.addTarget(self, action: #selector(addToList), for: .touchUpInside)
-            bottomVStack.addArrangedSubview(addToListButton)
-        }
-        
-        let shareButton = UIButton()
-        shareButton.setTitle("Share khel info", for: .normal)
-        shareButton.backgroundColor = .secondarySystemBackground
-        styleButton(shareButton, systemImage: "square.and.arrow.up")
-        shareButton.addTarget(self, action: #selector(shareKhelInfo), for: .touchUpInside)
-        bottomVStack.addArrangedSubview(shareButton)
-
-        let somethingWrongButton = UIButton()
-        somethingWrongButton.setTitle("Spotted something wrong?", for: .normal)
-        somethingWrongButton.backgroundColor = .secondarySystemBackground
-        styleButton(somethingWrongButton, systemImage: "envelope")
-        somethingWrongButton.addTarget(self, action: #selector(contactSupport), for: .touchUpInside)
-        bottomVStack.addArrangedSubview(somethingWrongButton)
-
-        let bottomSquircle = Squircle()
-        bottomSquircle.add(bottomVStack)
-        bottomVStack.pinTo(top: 16, bottom: 16, left: 16, right: 16)
-        bottomSquircle.cornerRadius = 16
-        bottomSquircle.backgroundColor = .systemBackground
-        
-        //Bottom View
-        
-        let togetherStack = UIStackView(arrangedSubviews: [topSquircle, bottomSquircle])
+        let togetherStack = UIStackView(arrangedSubviews: [topSquircle, bottomView()])
         togetherStack.axis = .vertical
         togetherStack.alignment = .fill
         togetherStack.distribution = .equalSpacing
@@ -211,6 +169,48 @@ class KhelDetailVC: UIViewController {
     }
         
     // MARK: - Helpers
+    
+    private func bottomView() -> UIView {
+        let bottomVStack = UIStackView()
+        bottomVStack.axis = .vertical
+        bottomVStack.distribution = .equalSpacing
+        bottomVStack.alignment = .fill
+        bottomVStack.spacing = 12
+        
+        switch useType {
+        case .alreadyInList:
+            break
+        case .browseAll:
+            let addToListButton = UIButton()
+            addToListButton.setTitle("Add to list", for: .normal)
+            addToListButton.backgroundColor = .secondarySystemBackground
+            styleButton(addToListButton, systemImage: "plus")
+            addToListButton.addTarget(self, action: #selector(addToList), for: .touchUpInside)
+            bottomVStack.addArrangedSubview(addToListButton)
+        }
+        
+        let shareButton = UIButton()
+        shareButton.setTitle("Share khel info", for: .normal)
+        shareButton.backgroundColor = .secondarySystemBackground
+        styleButton(shareButton, systemImage: "square.and.arrow.up")
+        shareButton.addTarget(self, action: #selector(shareKhelInfo), for: .touchUpInside)
+        bottomVStack.addArrangedSubview(shareButton)
+
+        let somethingWrongButton = UIButton()
+        somethingWrongButton.setTitle("Spotted something wrong?", for: .normal)
+        somethingWrongButton.backgroundColor = .secondarySystemBackground
+        styleButton(somethingWrongButton, systemImage: "envelope")
+        somethingWrongButton.addTarget(self, action: #selector(contactSupport), for: .touchUpInside)
+        bottomVStack.addArrangedSubview(somethingWrongButton)
+
+        let bottomSquircle = Squircle()
+        bottomSquircle.add(bottomVStack)
+        bottomVStack.pinTo(top: 16, bottom: 16, left: 16, right: 16)
+        bottomSquircle.cornerRadius = 16
+        bottomSquircle.backgroundColor = .systemBackground
+        
+        return bottomSquircle
+    }
     
     private func styleButton(_ button: UIButton, systemImage: String) {
         button.layer.cornerRadius = 8
