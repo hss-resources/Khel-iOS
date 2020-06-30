@@ -133,7 +133,7 @@ class KhelDetailVC: UIViewController {
         togetherStack.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: togetherStack.trailingAnchor, constant: 16).isActive = true
         togetherStack.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -32).isActive = true
-        togetherStack.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 8).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: togetherStack.bottomAnchor, constant: 16).isActive = true
         
         view.backgroundColor = .secondarySystemBackground
         

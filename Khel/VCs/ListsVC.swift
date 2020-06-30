@@ -71,7 +71,9 @@ class ListsVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch Section(rawValue: indexPath.section) {
         case .generate:
-            return
+            let nav = UINavigationController(rootViewController: GenerateListVC(PlistManager.get(Lists.self, from: String(describing: Lists.self))?.payload.count ?? 0))
+            nav.presentationController?.delegate = self
+            present(nav, animated: true)
         case .existing:
             guard let list = PlistManager.get(Lists.self, from: String(describing: Lists.self))?.payload[indexPath.row] else { return }
             let nav = UINavigationController(rootViewController: ListDetailVC(list, index: indexPath.row))
