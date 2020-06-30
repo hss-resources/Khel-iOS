@@ -46,7 +46,7 @@ class ListDetailVC: UITableViewController {
             textField.placeholder = self?.list.name
         }
 
-        let submitAction = UIAlertAction(title: "Save", style: .default) { [weak self, weak ac] action in
+        let submitAction = UIAlertAction(title: "Save", style: .default) { [weak self, weak ac] _ in
             guard let newName = ac?.textFields?[0].text,
             let self = self else { return }
             let allLists = PlistManager.get(Lists.self, from: String(describing: Lists.self)) ?? Lists()
@@ -85,7 +85,7 @@ class ListDetailVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        present(UINavigationController(rootViewController: KhelDetailVC(list.list[indexPath.row])), animated: true)
+        present(UINavigationController(rootViewController: KhelDetailVC(list.list[indexPath.row], useType: .alreadyInList)), animated: true)
     }
 
 }

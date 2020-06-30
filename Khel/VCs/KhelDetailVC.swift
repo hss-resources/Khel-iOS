@@ -8,14 +8,21 @@
 
 import UIKit
 import JSSquircle
+import SafariServices
 
 class KhelDetailVC: UIViewController {
+    
+    enum UseType: String {
+        case browseAll
+        case alreadyInList
+    }
     
     //================================================================================
     // MARK: Private Properties
     //================================================================================
     
     private let khel: Khel
+    private let useType: UseType
     
     private var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -27,8 +34,9 @@ class KhelDetailVC: UIViewController {
     // MARK: Initialisation
     //================================================================================
     
-    init(_ khel: Khel) {
+    init(_ khel: Khel, useType: UseType) {
         self.khel = khel
+        self.useType = useType
         super.init(nibName: nil, bundle: .main)
     }
     
@@ -103,23 +111,71 @@ class KhelDetailVC: UIViewController {
         vStack.distribution = .equalSpacing
         vStack.spacing = 8
         
-        let squircle = Squircle()
-        squircle.add(vStack)
+        let topSquircle = Squircle()
+        topSquircle.add(vStack)
         vStack.pinTo(top: 16, bottom: 16, left: 16, right: 16)
-        squircle.cornerRadius = 16
-        squircle.backgroundColor = .systemBackground
+        topSquircle.cornerRadius = 16
+        topSquircle.backgroundColor = .systemBackground
+        
+        //Bottom View
+        
+        let bottomVStack = UIStackView()
+        bottomVStack.axis = .vertical
+        bottomVStack.distribution = .equalSpacing
+        bottomVStack.alignment = .fill
+        bottomVStack.spacing = 12
+        
+        switch useType {
+        case .alreadyInList:
+            break
+        case .browseAll:
+            let addToListButton = UIButton()
+            addToListButton.setTitle("Add to list", for: .normal)
+            addToListButton.backgroundColor = .secondarySystemBackground
+            styleButton(addToListButton, systemImage: "plus")
+            addToListButton.addTarget(self, action: #selector(addToList), for: .touchUpInside)
+            bottomVStack.addArrangedSubview(addToListButton)
+        }
+        
+        let shareButton = UIButton()
+        shareButton.setTitle("Share khel info", for: .normal)
+        shareButton.backgroundColor = .secondarySystemBackground
+        styleButton(shareButton, systemImage: "square.and.arrow.up")
+        shareButton.addTarget(self, action: #selector(shareKhelInfo), for: .touchUpInside)
+        bottomVStack.addArrangedSubview(shareButton)
+
+        let somethingWrongButton = UIButton()
+        somethingWrongButton.setTitle("Spotted something wrong?", for: .normal)
+        somethingWrongButton.backgroundColor = .secondarySystemBackground
+        styleButton(somethingWrongButton, systemImage: "envelope")
+        somethingWrongButton.addTarget(self, action: #selector(contactSupport), for: .touchUpInside)
+        bottomVStack.addArrangedSubview(somethingWrongButton)
+
+        let bottomSquircle = Squircle()
+        bottomSquircle.add(bottomVStack)
+        bottomVStack.pinTo(top: 16, bottom: 16, left: 16, right: 16)
+        bottomSquircle.cornerRadius = 16
+        bottomSquircle.backgroundColor = .systemBackground
+        
+        //Bottom View
+        
+        let togetherStack = UIStackView(arrangedSubviews: [topSquircle, bottomSquircle])
+        togetherStack.axis = .vertical
+        togetherStack.alignment = .fill
+        togetherStack.distribution = .equalSpacing
+        togetherStack.spacing = 16
         
         view.add(scrollView)
         scrollView.pinTo(left: 0, right: 0)
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         
-        scrollView.add(squircle)
-        squircle.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 8).isActive = true
-        squircle.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16).isActive = true
-        scrollView.trailingAnchor.constraint(equalTo: squircle.trailingAnchor, constant: 16).isActive = true
-        squircle.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -32).isActive = true
-        squircle.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 8).isActive = true
+        scrollView.add(togetherStack)
+        togetherStack.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 8).isActive = true
+        togetherStack.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: togetherStack.trailingAnchor, constant: 16).isActive = true
+        togetherStack.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -32).isActive = true
+        togetherStack.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 8).isActive = true
         
         view.backgroundColor = .secondarySystemBackground
         
@@ -136,8 +192,37 @@ class KhelDetailVC: UIViewController {
     // MARK: Actions
     //================================================================================
     
-    //TODO: Add share, add to list, spotted something wrong? buttons
-
+    @objc private func addToList() {
+        ListManager.add(khel, vc: self)
+    }
+    
+    @objc private func shareKhelInfo() {
+        let items = ["\(khel.name) - \(khel.category.rawValue)\n\nMeaning:\n\(khel.meaning)\n\nAim:\n\(khel.aim)\n\nDescription:\n\(khel.description)"]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(ac, animated: true)
+    }
+    
+    @objc private func contactSupport() {
+        if let url = URL(string: "https://appktchn.com/contact-us/") {
+            let config = SFSafariViewController.Configuration()
+            let vc = SFSafariViewController(url: url, configuration: config)
+            present(vc, animated: true)
+        }
+    }
+        
+    // MARK: - Helpers
+    
+    private func styleButton(_ button: UIButton, systemImage: String) {
+        button.layer.cornerRadius = 8
+        let config = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 13, weight: .semibold))
+        button.setImage(UIImage(systemName: systemImage, withConfiguration: config), for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 13, weight: .semibold)
+        button.setTitleColor(.label, for: .normal)
+        button.tintColor = .label
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -4, bottom: 0, right: 0)
+        button.pinHeight(32)
+    }
 }
 
 //================================================================================

@@ -160,43 +160,14 @@ class BrowseKhelsVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        present(UINavigationController(rootViewController: KhelDetailVC(filteredKhels[indexPath.row])), animated: true)
+        present(UINavigationController(rootViewController: KhelDetailVC(filteredKhels[indexPath.row], useType: .browseAll)), animated: true)
     }
 
 }
 
 extension BrowseKhelsVC: KhelCellDelegate {
     func handleLeftButton(_ khel: Khel) {
-        let allLists = PlistManager.get(Lists.self, from: String(describing: Lists.self)) ?? Lists()
-        let ac = UIAlertController(title: khel.name, message: "Select a list to add this khel:", preferredStyle: .alert)
-        
-        allLists.payload.forEach { list in
-            let action = UIAlertAction(title: list.name, style: .default) { [weak self] _ in
-                list.list.append(khel)
-                PlistManager.save(allLists, plistName: String(describing: Lists.self))
-                self?.showAddedSuccessAlert()
-            }
-            ac.addAction(action)
-        }
-        
-        let newList = UIAlertAction(title: "New list", style: .default) { [weak self] _ in
-            allLists.payload.append(List(name: "List \(allLists.payload.count + 1)", list: [khel]))
-            PlistManager.save(allLists, plistName: String(describing: Lists.self))
-            self?.showAddedSuccessAlert()
-        }
-        ac.addAction(newList)
-        
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        
-        present(ac, animated: true)
-    }
-    
-    private func showAddedSuccessAlert() {
-        let statusAlert = StatusAlert()
-        statusAlert.image = UIImage(systemName: "checkmark")
-        statusAlert.title = "Added"
-        statusAlert.appearance.tintColor = .label
-        statusAlert.showInKeyWindow()
+        ListManager.add(khel, vc: self)
     }
     
 }
