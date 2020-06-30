@@ -116,7 +116,7 @@ class BrowseKhelsVC: UITableViewController {
             return header
         }
                 
-        let filterView = UIView()
+        let filterView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 200))
         
         let switches: [UIView] = Khel.Category.allCases.map({
             let label = UILabel()
