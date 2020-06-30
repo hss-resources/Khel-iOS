@@ -16,7 +16,6 @@ protocol ListCellDelegate: class {
 
 class ListCell: UITableViewCell {
     
-    //TODO: Ability to delete lists
     //TODO: Random generator (new list, or add to list)
     
     private var list: List?

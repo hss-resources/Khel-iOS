@@ -41,6 +41,7 @@ class ListDetailVC: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark.circle"), style: .plain, target: self, action: #selector(close))
         
         tableView.register(KhelCell.self, forCellReuseIdentifier: KhelCell.UseType.alreadyInList.rawValue)
+        tableView.register(DeleteCell.self, forCellReuseIdentifier: String(describing: DeleteCell.self))
         tableView.separatorStyle = .none
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0)
         tableView.backgroundColor = .secondarySystemBackground
@@ -106,7 +107,8 @@ class ListDetailVC: UITableViewController {
             
             view.add(label)
             label.alignYAxis()
-            label.alignXAxis()
+            label.pinTo(left: 16, right: 16)
+            
             return view
         }
         let view = UIView()
@@ -155,7 +157,8 @@ class ListDetailVC: UITableViewController {
             cell.update(list.list[indexPath.row], delegate: self)
             return cell
         case .dangerZone:
-            return UITableViewCell()
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DeleteCell.self), for: indexPath) as? DeleteCell else { return UITableViewCell() }
+            return cell
         case .none:
             return UITableViewCell()
         }
