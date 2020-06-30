@@ -101,6 +101,12 @@ class BrowseKhelsVC: UITableViewController {
         filterKhels()
         tableView.reloadSections(IndexSet(integersIn: 0...0), with: .fade)
     }
+    
+    @objc private func sortMethodChanged(_ sender: UISegmentedControl) {
+        sortMethod = SortMethod.allCases[sender.selectedSegmentIndex]
+        filterKhels()
+        tableView.reloadSections(IndexSet(integersIn: 0...0), with: .fade)
+    }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
@@ -130,12 +136,16 @@ class BrowseKhelsVC: UITableViewController {
         sortLabel.font = .systemFont(ofSize: 13, weight: .bold)
         sortLabel.textColor = .secondaryLabel
         
+        let segementedControl = UISegmentedControl(items: SortMethod.allCases.map { $0.rawValue })
+        segementedControl.selectedSegmentIndex = SortMethod.allCases.firstIndex(of: sortMethod) ?? 0
+        segementedControl.addTarget(self, action: #selector(sortMethodChanged(_:)), for: .valueChanged)
+        
         let categoryLabel = UILabel()
         categoryLabel.text = "Categories:"
         categoryLabel.font = .systemFont(ofSize: 13, weight: .bold)
         categoryLabel.textColor = .secondaryLabel
         
-        let filterViews = [sortLabel, categoryLabel]
+        let filterViews = [sortLabel, segementedControl, categoryLabel]
         
         let vStack = UIStackView(arrangedSubviews: filterViews + switches)
         vStack.axis = .vertical
