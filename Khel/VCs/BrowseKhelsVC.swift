@@ -66,7 +66,7 @@ class BrowseKhelsVC: UITableViewController {
         navigationController?.navigationBar.tintColor = .systemBlue
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3.decrease.circle"), style: .plain, target: self, action: #selector(toggleFilterDrawer))
         
-        tableView.register(KhelCell.self, forCellReuseIdentifier: String(describing: KhelCell.self))
+        tableView.register(KhelCell.self, forCellReuseIdentifier: KhelCell.UseType.browseAll.rawValue)
         tableView.separatorStyle = .none
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0)
         tableView.backgroundColor = .secondarySystemBackground
@@ -110,6 +110,8 @@ class BrowseKhelsVC: UITableViewController {
             return header
         }
         
+        //TODO: Add sort method selector
+        
         let filterView = UIView()
         
         let switches: [UIView] = Khel.Category.allCases.map({
@@ -152,7 +154,7 @@ class BrowseKhelsVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: KhelCell.self), for: indexPath) as? KhelCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: KhelCell.UseType.browseAll.rawValue, for: indexPath) as? KhelCell else { return UITableViewCell() }
         cell.update(filteredKhels[indexPath.row], delegate: self)
         return cell
     }
@@ -164,27 +166,37 @@ class BrowseKhelsVC: UITableViewController {
 }
 
 extension BrowseKhelsVC: KhelCellDelegate {
-    func addToList(_ khel: Khel) {
+    func handleLeftButton(_ khel: Khel) {
         let allLists = PlistManager.get(Lists.self, from: String(describing: Lists.self)) ?? Lists()
         let ac = UIAlertController(title: khel.name, message: "Select a list to add this khel:", preferredStyle: .alert)
         
         allLists.payload.forEach { list in
-            let action = UIAlertAction(title: list.name, style: .default) { _ in
+            let action = UIAlertAction(title: list.name, style: .default) { [weak self] _ in
                 list.list.append(khel)
                 PlistManager.save(allLists, plistName: String(describing: Lists.self))
+                self?.showAddedSuccessAlert()
             }
             ac.addAction(action)
         }
         
-        let newList = UIAlertAction(title: "New list", style: .default) { _ in
+        let newList = UIAlertAction(title: "New list", style: .default) { [weak self] _ in
             allLists.payload.append(List(name: "List \(allLists.payload.count + 1)", list: [khel]))
             PlistManager.save(allLists, plistName: String(describing: Lists.self))
+            self?.showAddedSuccessAlert()
         }
         ac.addAction(newList)
         
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         
         present(ac, animated: true)
+    }
+    
+    private func showAddedSuccessAlert() {
+        let statusAlert = StatusAlert()
+        statusAlert.image = UIImage(systemName: "checkmark")
+        statusAlert.title = "Added"
+        statusAlert.appearance.tintColor = .label
+        statusAlert.showInKeyWindow()
     }
     
 }

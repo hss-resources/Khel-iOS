@@ -11,11 +11,16 @@ import JSSquircle
 import LessAutolayoutBoilerplate
 
 protocol KhelCellDelegate: class {
-    func addToList(_ khel: Khel)
+    func handleLeftButton(_ khel: Khel)
 }
 
 class KhelCell: UITableViewCell {
 
+    enum UseType: String {
+        case browseAll
+        case alreadyInList
+    }
+    
     weak var delegate: KhelCellDelegate?
     private var khel: Khel?
     
@@ -41,11 +46,8 @@ class KhelCell: UITableViewCell {
         return label
     }()
     
-    private let addButton: UIButton = {
+    private let leftButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Add to list", for: .normal)
-        let smallConfiguration = UIImage.SymbolConfiguration(scale: .small)
-        button.setImage(UIImage(systemName: "plus.circle", withConfiguration: smallConfiguration), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 13, weight: .medium)
         button.setTitleColor(.secondaryLabel, for: .normal)
         button.tintColor = .secondaryLabel
@@ -85,12 +87,12 @@ class KhelCell: UITableViewCell {
         lineView.backgroundColor = .tertiaryLabel
         lineView.pinWidth(1)
         
-        frontView.add(addButton, infoButton, lineView)
-        addButton.pinTo(top: 0, bottom: 0, left: 0)
+        frontView.add(leftButton, infoButton, lineView)
+        leftButton.pinTo(top: 0, bottom: 0, left: 0)
         infoButton.pinTo(top: 0, bottom: 0, right: 0)
         lineView.pinTo(top: 0, bottom: 0)
         lineView.alignXAxis()
-        addButton.trailingAnchor.constraint(equalTo: lineView.leadingAnchor).isActive = true
+        leftButton.trailingAnchor.constraint(equalTo: lineView.leadingAnchor).isActive = true
         lineView.trailingAnchor.constraint(equalTo: infoButton.leadingAnchor).isActive = true
         
         return bgView
@@ -98,15 +100,26 @@ class KhelCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        customInit()
+        customInit(UseType(rawValue: reuseIdentifier ?? "browseAll") ?? .browseAll)
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        customInit()
+        customInit(UseType(rawValue: reuseIdentifier ?? "browseAll") ?? .browseAll)
     }
     
-    private func customInit() {
+    private func customInit(_ reuseId: UseType) {
+        
+        switch reuseId {
+        case .browseAll:
+            leftButton.setTitle("Add to list", for: .normal)
+            let smallConfiguration = UIImage.SymbolConfiguration(scale: .small)
+            leftButton.setImage(UIImage(systemName: "plus.circle", withConfiguration: smallConfiguration), for: .normal)
+        case .alreadyInList:
+            leftButton.setTitle("Remove", for: .normal)
+            let smallConfiguration = UIImage.SymbolConfiguration(scale: .small)
+            leftButton.setImage(UIImage(systemName: "trash", withConfiguration: smallConfiguration), for: .normal)
+        }
         
         let bgSquircle = Squircle()
         bgSquircle.cornerRadius = 16
@@ -131,7 +144,7 @@ class KhelCell: UITableViewCell {
         contentView.add(bgSquircle)
         bgSquircle.pinTo(top: 16, bottom: 0, left: 16, right: 16)
         
-        addButton.addTarget(self, action: #selector(addToListAction), for: .touchUpInside)
+        leftButton.addTarget(self, action: #selector(addToListAction), for: .touchUpInside)
     }
     
     func update(_ khel: Khel, delegate: KhelCellDelegate) {
@@ -150,7 +163,7 @@ class KhelCell: UITableViewCell {
     
     @objc private func addToListAction() {
         if let khel = khel {
-            delegate?.addToList(khel)
+            delegate?.handleLeftButton(khel)
         }
     }
     

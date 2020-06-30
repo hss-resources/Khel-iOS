@@ -63,7 +63,7 @@ class ListCell: UITableViewCell {
         button.setTitleColor(.secondaryLabel, for: .normal)
         button.tintColor = .secondaryLabel
         button.backgroundColor = .tertiarySystemBackground
-        
+        button.isUserInteractionEnabled = false
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -4, bottom: 0, right: 0)
         return button
@@ -133,9 +133,7 @@ class ListCell: UITableViewCell {
         descriptionLabel.text = list.enumeratedList
         self.delegate = delegate
         self.list = list
-        //categoryLabel.text = khel.category.rawValue
-        //categoryContainer.backgroundColor = khel.category.color
-        tagView.update(list.list.map { $0.category })
+        tagView.update(Set(list.list.map { $0.category }))
     }
     
     @objc private func shareList() {

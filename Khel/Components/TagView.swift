@@ -36,7 +36,7 @@ class TagView: UIView {
         
     }
     
-    func update(_ tags: [Khel.Category]) {
+    func update(_ tags: Set<Khel.Category>) {
         
         vStack.arrangedSubviews.forEach { $0.removeFromSuperview() }
         

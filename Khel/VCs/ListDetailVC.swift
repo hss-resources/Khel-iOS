@@ -34,7 +34,7 @@ class ListDetailVC: UITableViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(editListName))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark.circle"), style: .plain, target: self, action: #selector(close))
         
-        tableView.register(KhelCell.self, forCellReuseIdentifier: String(describing: KhelCell.self))
+        tableView.register(KhelCell.self, forCellReuseIdentifier: KhelCell.UseType.alreadyInList.rawValue)
         tableView.separatorStyle = .none
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0)
         tableView.backgroundColor = .secondarySystemBackground
@@ -54,6 +54,12 @@ class ListDetailVC: UITableViewController {
             thisList.name = newName
             self.title = newName
             PlistManager.save(allLists, plistName: String(describing: Lists.self))
+            
+            let statusAlert = StatusAlert()
+            statusAlert.image = UIImage(systemName: "checkmark")
+            statusAlert.title = "Renamed"
+            statusAlert.appearance.tintColor = .label
+            statusAlert.showInKeyWindow()
         }
 
         ac.addAction(submitAction)
@@ -73,7 +79,7 @@ class ListDetailVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: KhelCell.self), for: indexPath) as? KhelCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: KhelCell.UseType.alreadyInList.rawValue, for: indexPath) as? KhelCell else { return UITableViewCell() }
         cell.update(list.list[indexPath.row], delegate: self)
         return cell
     }
@@ -86,28 +92,36 @@ class ListDetailVC: UITableViewController {
 
 extension ListDetailVC: KhelCellDelegate {
     
-    //TODO: Change to remove from list
-    func addToList(_ khel: Khel) {
+    func handleLeftButton(_ khel: Khel) {
+        
+        if list.list.count == 1 {
+            deleteEntireList()
+            return
+        }
+        
         let allLists = PlistManager.get(Lists.self, from: String(describing: Lists.self)) ?? Lists()
-        let ac = UIAlertController(title: khel.name, message: "Select a list to add this khel:", preferredStyle: .alert)
-        
-        allLists.payload.forEach { list in
-            let action = UIAlertAction(title: list.name, style: .default) { _ in
-                list.list.append(khel)
-                PlistManager.save(allLists, plistName: String(describing: Lists.self))
-            }
-            ac.addAction(action)
-        }
-        
-        let newList = UIAlertAction(title: "New list", style: .default) { _ in
-            allLists.payload.append(List(name: "List \(allLists.payload.count + 1)", list: [khel]))
-            PlistManager.save(allLists, plistName: String(describing: Lists.self))
-        }
-        ac.addAction(newList)
-        
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        
-        present(ac, animated: true)
+        let thisList = allLists.payload[self.index]
+        thisList.list.removeAll(where: { $0 == khel })
+        list.list = thisList.list
+        PlistManager.save(allLists, plistName: String(describing: Lists.self))
+        showRemovedSuccessAlert()
+        tableView.reloadSections(IndexSet(integersIn: 0...0), with: .none)
+    }
+    
+    private func showRemovedSuccessAlert() {
+        let statusAlert = StatusAlert()
+        statusAlert.image = UIImage(systemName: "trash")
+        statusAlert.title = "Removed"
+        statusAlert.appearance.tintColor = .label
+        statusAlert.showInKeyWindow()
+    }
+    
+    private func deleteEntireList() {
+        let allLists = PlistManager.get(Lists.self, from: String(describing: Lists.self)) ?? Lists()
+        allLists.payload.remove(at: index)
+        PlistManager.save(allLists, plistName: String(describing: Lists.self))
+        close()
+        showRemovedSuccessAlert()
     }
     
 }

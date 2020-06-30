@@ -21,7 +21,6 @@
 		7F6DD10124A92B8E00A99AA7 /* ListsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DD10024A92B8E00A99AA7 /* ListsVC.swift */; };
 		7F6DD10324A93AE400A99AA7 /* ListDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DD10224A93AE400A99AA7 /* ListDetailVC.swift */; };
 		7FAACA1724A8EAA60099EC36 /* KhelDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAACA1624A8EAA60099EC36 /* KhelDetailVC.swift */; };
-		7FAACA1A24A8EE2F0099EC36 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAACA1924A8EE2F0099EC36 /* Extension+UIViewController.swift */; };
 		7FBB963D24A8D31E00E25BE9 /* khel.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FBB963C24A8D31E00E25BE9 /* khel.json */; };
 		7FBB963F24A8DCCE00E25BE9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB963E24A8DCCE00E25BE9 /* Theme.swift */; };
 		F671D74005CBF2BE77E4F6A3 /* Pods_Khel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F00D55CD9A5C601EF97BDF2D /* Pods_Khel.framework */; };
@@ -44,7 +43,6 @@
 		7F6DD10024A92B8E00A99AA7 /* ListsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsVC.swift; sourceTree = "<group>"; };
 		7F6DD10224A93AE400A99AA7 /* ListDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDetailVC.swift; sourceTree = "<group>"; };
 		7FAACA1624A8EAA60099EC36 /* KhelDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhelDetailVC.swift; sourceTree = "<group>"; };
-		7FAACA1924A8EE2F0099EC36 /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
 		7FBB963C24A8D31E00E25BE9 /* khel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = khel.json; sourceTree = "<group>"; };
 		7FBB963E24A8DCCE00E25BE9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		AB0C7D12BC34642D9530893F /* Pods-Khel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Khel.release.xcconfig"; path = "Target Support Files/Pods-Khel/Pods-Khel.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,7 +139,6 @@
 		7FAACA1824A8EE140099EC36 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				7FAACA1924A8EE2F0099EC36 /* Extension+UIViewController.swift */,
 				7FBB963E24A8DCCE00E25BE9 /* Theme.swift */,
 			);
 			path = Extensions;
@@ -309,7 +306,6 @@
 				7F58B27424A8B93C00B722E0 /* KhelCell.swift in Sources */,
 				7FAACA1724A8EAA60099EC36 /* KhelDetailVC.swift in Sources */,
 				7F6DD10124A92B8E00A99AA7 /* ListsVC.swift in Sources */,
-				7FAACA1A24A8EE2F0099EC36 /* Extension+UIViewController.swift in Sources */,
 				7F6DD0FD24A921AE00A99AA7 /* PlistStructs.swift in Sources */,
 				7F58B25724A8B2C500B722E0 /* SceneDelegate.swift in Sources */,
 			);
