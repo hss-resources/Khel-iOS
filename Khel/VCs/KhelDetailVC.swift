@@ -103,17 +103,23 @@ class KhelDetailVC: UIViewController {
         vStack.distribution = .equalSpacing
         vStack.spacing = 8
         
+        let squircle = Squircle()
+        squircle.add(vStack)
+        vStack.pinTo(top: 16, bottom: 16, left: 16, right: 16)
+        squircle.cornerRadius = 16
+        squircle.backgroundColor = .systemBackground
+        
         view.add(scrollView)
         scrollView.pinTo(left: 0, right: 0)
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         
-        scrollView.add(vStack)
-        vStack.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 8).isActive = true
-        vStack.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20).isActive = true
-        scrollView.trailingAnchor.constraint(equalTo: vStack.trailingAnchor, constant: 20).isActive = true
-        vStack.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -40).isActive = true
-        vStack.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 8).isActive = true
+        scrollView.add(squircle)
+        squircle.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 8).isActive = true
+        squircle.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: squircle.trailingAnchor, constant: 16).isActive = true
+        squircle.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -32).isActive = true
+        squircle.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 8).isActive = true
         
         view.backgroundColor = .secondarySystemBackground
         
