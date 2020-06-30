@@ -12,6 +12,12 @@ import StatusAlert
 
 class ListDetailVC: UITableViewController {
 
+    enum Section: Int, CaseIterable {
+        case info
+        case khels
+        case dangerZone
+    }
+    
     private let list: List
     private let index: Int
     
@@ -74,18 +80,80 @@ class ListDetailVC: UITableViewController {
         dismiss(animated: true)
     }
     
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return Section.allCases.count
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .secondarySystemBackground
+        return view
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        
+        switch Section(rawValue: section) {
+        case .info: return 0
+        case .khels: return 16
+        case .dangerZone: return 0
+        case .none: return 0
+        }
+        
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.list.count
+        
+        switch Section(rawValue: section) {
+        case .info: return 1
+        case .khels: return list.list.count
+        case .dangerZone: return 1
+        case .none: return 0
+        }
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: KhelCell.UseType.alreadyInList.rawValue, for: indexPath) as? KhelCell else { return UITableViewCell() }
-        cell.update(list.list[indexPath.row], delegate: self)
-        return cell
+        
+        switch Section(rawValue: indexPath.section) {
+        case .info:
+            return UITableViewCell()
+            //You can rename the list
+            //Add more khels from the Browse All section
+            //Share list button
+        case .khels:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: KhelCell.UseType.alreadyInList.rawValue, for: indexPath) as? KhelCell else { return UITableViewCell() }
+            cell.update(list.list[indexPath.row], delegate: self)
+            return cell
+        case .dangerZone:
+            return UITableViewCell()
+        case .none:
+            return UITableViewCell()
+        }
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        switch Section(rawValue: section) {
+        case .khels, .info, .none:
+            return nil
+        case .dangerZone:
+            return "Danger zone"
+        }
+        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        present(UINavigationController(rootViewController: KhelDetailVC(list.list[indexPath.row], useType: .alreadyInList)), animated: true)
+        
+        switch Section(rawValue: indexPath.section) {
+        case .khels:
+            present(UINavigationController(rootViewController: KhelDetailVC(list.list[indexPath.row], useType: .alreadyInList)), animated: true)
+        case .dangerZone:
+            deleteEntireList()
+        case .none, .info:
+            return
+        }
+        
     }
 
 }
