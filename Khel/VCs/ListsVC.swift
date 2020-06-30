@@ -23,6 +23,7 @@ class ListsVC: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         tableView.register(ListCell.self, forCellReuseIdentifier: String(describing: ListCell.self))
+        tableView.register(GenerateListCell.self, forCellReuseIdentifier: String(describing: GenerateListCell.self))
         tableView.separatorStyle = .none
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0)
         tableView.backgroundColor = .secondarySystemBackground
@@ -54,7 +55,7 @@ class ListsVC: UITableViewController {
         
         switch Section(rawValue: indexPath.section) {
         case .generate:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ListCell.self), for: indexPath) as? ListCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: GenerateListCell.self), for: indexPath) as? GenerateListCell else { return UITableViewCell() }
             return cell
         case .existing:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ListCell.self), for: indexPath) as? ListCell,
@@ -68,10 +69,30 @@ class ListsVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let list = PlistManager.get(Lists.self, from: String(describing: Lists.self))?.payload[indexPath.row] else { return }
-        let nav = UINavigationController(rootViewController: ListDetailVC(list, index: indexPath.row))
-        nav.presentationController?.delegate = self
-        present(nav, animated: true)
+        switch Section(rawValue: indexPath.section) {
+        case .generate:
+            return
+        case .existing:
+            guard let list = PlistManager.get(Lists.self, from: String(describing: Lists.self))?.payload[indexPath.row] else { return }
+            let nav = UINavigationController(rootViewController: ListDetailVC(list, index: indexPath.row))
+            nav.presentationController?.delegate = self
+            present(nav, animated: true)
+        case .none:
+            return
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch Section(rawValue: section) {
+        case .existing, .none:
+            return 0
+        case .generate:
+            return 8
+        }
     }
 
 }

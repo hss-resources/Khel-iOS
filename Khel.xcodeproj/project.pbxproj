@@ -19,6 +19,7 @@
 		7F653B9924ABDEC700766E6A /* DeleteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F653B9824ABDEC700766E6A /* DeleteCell.swift */; };
 		7F653B9B24ABE1EA00766E6A /* ShareCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F653B9A24ABE1EA00766E6A /* ShareCell.swift */; };
 		7F653B9D24ABE2B400766E6A /* ListInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F653B9C24ABE2B400766E6A /* ListInfoCell.swift */; };
+		7F653B9F24ABE55A00766E6A /* GenerateListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F653B9E24ABE55A00766E6A /* GenerateListCell.swift */; };
 		7F6CE98224A9DA53002CB7B6 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6CE98124A9DA53002CB7B6 /* TagView.swift */; };
 		7F6DD0FD24A921AE00A99AA7 /* PlistStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DD0FC24A921AE00A99AA7 /* PlistStructs.swift */; };
 		7F6DD0FF24A92AB600A99AA7 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DD0FE24A92AB600A99AA7 /* ListCell.swift */; };
@@ -45,6 +46,7 @@
 		7F653B9824ABDEC700766E6A /* DeleteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCell.swift; sourceTree = "<group>"; };
 		7F653B9A24ABE1EA00766E6A /* ShareCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareCell.swift; sourceTree = "<group>"; };
 		7F653B9C24ABE2B400766E6A /* ListInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListInfoCell.swift; sourceTree = "<group>"; };
+		7F653B9E24ABE55A00766E6A /* GenerateListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateListCell.swift; sourceTree = "<group>"; };
 		7F6CE98124A9DA53002CB7B6 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		7F6DD0FC24A921AE00A99AA7 /* PlistStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistStructs.swift; sourceTree = "<group>"; };
 		7F6DD0FE24A92AB600A99AA7 /* ListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				7F58B27324A8B93C00B722E0 /* KhelCell.swift */,
 				7F6DD0FE24A92AB600A99AA7 /* ListCell.swift */,
 				7F653B9824ABDEC700766E6A /* DeleteCell.swift */,
+				7F653B9E24ABE55A00766E6A /* GenerateListCell.swift */,
 				7F653B9A24ABE1EA00766E6A /* ShareCell.swift */,
 				7F653B9C24ABE2B400766E6A /* ListInfoCell.swift */,
 				7F6CE98124A9DA53002CB7B6 /* TagView.swift */,
@@ -324,6 +327,7 @@
 				7F6DD0FD24A921AE00A99AA7 /* PlistStructs.swift in Sources */,
 				7F58B25724A8B2C500B722E0 /* SceneDelegate.swift in Sources */,
 				7F653B9B24ABE1EA00766E6A /* ShareCell.swift in Sources */,
+				7F653B9F24ABE55A00766E6A /* GenerateListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

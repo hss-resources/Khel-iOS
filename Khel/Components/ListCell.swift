@@ -123,7 +123,7 @@ class ListCell: UITableViewCell {
         
         contentView.backgroundColor = .secondarySystemBackground
         contentView.add(bgSquircle)
-        bgSquircle.pinTo(top: 16, bottom: 0, left: 16, right: 16)
+        bgSquircle.pinTo(top: 8, bottom: 8, left: 16, right: 16)
         
         shareButton.addTarget(self, action: #selector(shareList), for: .touchUpInside)
         
