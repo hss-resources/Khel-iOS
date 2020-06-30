@@ -110,6 +110,8 @@ class KhelCell: UITableViewCell {
     
     private func customInit(_ reuseId: UseType) {
         
+        selectionStyle = .none
+        
         switch reuseId {
         case .browseAll:
             leftButton.setTitle("Add to list", for: .normal)
@@ -141,8 +143,9 @@ class KhelCell: UITableViewCell {
         linedView.topAnchor.constraint(equalTo: vStack.bottomAnchor, constant: 16).isActive = true
         
         contentView.backgroundColor = .secondarySystemBackground
+        backgroundColor = .secondarySystemBackground
         contentView.add(bgSquircle)
-        bgSquircle.pinTo(top: 16, bottom: 0, left: 16, right: 16)
+        bgSquircle.pinTo(top: 8, bottom: 8, left: 16, right: 16)
         
         leftButton.addTarget(self, action: #selector(addToListAction), for: .touchUpInside)
     }

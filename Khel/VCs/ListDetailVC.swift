@@ -11,7 +11,7 @@ import PlistManager
 import StatusAlert
 
 class ListDetailVC: UITableViewController {
-
+    
     enum Section: Int, CaseIterable {
         case info
         case khels
@@ -44,6 +44,10 @@ class ListDetailVC: UITableViewController {
         tableView.separatorStyle = .none
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0)
         tableView.backgroundColor = .secondarySystemBackground
+        
+        tableView.dragInteractionEnabled = true
+        tableView.dragDelegate = self
+        tableView.dropDelegate = self
     }
     
     @objc private func editListName() {
@@ -51,10 +55,10 @@ class ListDetailVC: UITableViewController {
         ac.addTextField { [weak self] (textField) in
             textField.placeholder = self?.list.name
         }
-
+        
         let submitAction = UIAlertAction(title: "Save", style: .default) { [weak self, weak ac] _ in
             guard let newName = ac?.textFields?[0].text,
-            let self = self else { return }
+                let self = self else { return }
             let allLists = PlistManager.get(Lists.self, from: String(describing: Lists.self)) ?? Lists()
             let thisList = allLists.payload[self.index]
             thisList.name = newName
@@ -67,7 +71,7 @@ class ListDetailVC: UITableViewController {
             statusAlert.appearance.tintColor = .label
             statusAlert.showInKeyWindow()
         }
-
+        
         ac.addAction(submitAction)
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(ac, animated: true)
@@ -90,15 +94,41 @@ class ListDetailVC: UITableViewController {
         return view
     }
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if Section.allCases[section] == .dangerZone {
+            let view = UIView()
+            view.backgroundColor = .secondarySystemBackground
+            
+            let label = UILabel()
+            label.text = "Danger zone!"
+            label.font = .systemFont(ofSize: 13, weight: .semibold)
+            label.textColor = .systemRed
+            
+            view.add(label)
+            label.alignYAxis()
+            label.alignXAxis()
+            return view
+        }
+        let view = UIView()
+        return view
+    }
+    
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        
         switch Section(rawValue: section) {
         case .info: return 0
-        case .khels: return 16
+        case .khels: return 8
         case .dangerZone: return 0
         case .none: return 0
         }
-        
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch Section(rawValue: section) {
+        case .info: return 0
+        case .khels: return 8
+        case .dangerZone: return 26
+        case .none: return 0
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -119,7 +149,7 @@ class ListDetailVC: UITableViewController {
             return UITableViewCell()
             //You can rename the list
             //Add more khels from the Browse All section
-            //Share list button
+        //Share list button
         case .khels:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: KhelCell.UseType.alreadyInList.rawValue, for: indexPath) as? KhelCell else { return UITableViewCell() }
             cell.update(list.list[indexPath.row], delegate: self)
@@ -128,17 +158,6 @@ class ListDetailVC: UITableViewController {
             return UITableViewCell()
         case .none:
             return UITableViewCell()
-        }
-        
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        switch Section(rawValue: section) {
-        case .khels, .info, .none:
-            return nil
-        case .dangerZone:
-            return "Danger zone"
         }
         
     }
@@ -155,7 +174,26 @@ class ListDetailVC: UITableViewController {
         }
         
     }
-
+    
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        switch Section(rawValue: indexPath.section) {
+        case .dangerZone, .info, .none:
+            return false
+        case .khels:
+            return true
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let allLists = PlistManager.get(Lists.self, from: String(describing: Lists.self)) ?? Lists()
+        let thisList = allLists.payload[self.index]
+        let movedObject = thisList.list[sourceIndexPath.row]
+        thisList.list.remove(at: sourceIndexPath.row)
+        thisList.list.insert(movedObject, at: destinationIndexPath.row)
+        list.list = thisList.list
+        PlistManager.save(allLists, plistName: String(describing: Lists.self))
+    }
+    
 }
 
 extension ListDetailVC: KhelCellDelegate {
@@ -191,5 +229,28 @@ extension ListDetailVC: KhelCellDelegate {
         close()
         showRemovedSuccessAlert()
     }
+    
+}
+
+extension ListDetailVC: UITableViewDragDelegate {
+    
+    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        return [UIDragItem(itemProvider: NSItemProvider())]
+    }
+    
+}
+
+extension ListDetailVC: UITableViewDropDelegate {
+    
+    func tableView(_ tableView: UITableView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UITableViewDropProposal {
+        guard let destinationSectionInt = destinationIndexPath?.section,
+            Section.allCases[destinationSectionInt] == Section.khels,
+            session.localDragSession != nil else {
+                return UITableViewDropProposal(operation: .cancel, intent: .unspecified)
+        }
+        return UITableViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {}
     
 }

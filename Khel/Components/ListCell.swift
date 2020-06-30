@@ -105,6 +105,8 @@ class ListCell: UITableViewCell {
     
     private func customInit() {
         
+        selectionStyle = .none
+        
         let bgSquircle = Squircle()
         bgSquircle.cornerRadius = 16
         bgSquircle.backgroundColor = .systemBackground

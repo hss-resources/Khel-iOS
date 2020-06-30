@@ -112,7 +112,7 @@ class BrowseKhelsVC: UITableViewController {
         
         guard filterOpen else {
             let header = UIView()
-            header.pinHeight(1)
+            header.pinHeight(8)
             return header
         }
                 
