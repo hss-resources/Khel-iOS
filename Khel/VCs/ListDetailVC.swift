@@ -15,6 +15,7 @@ class ListDetailVC: UITableViewController {
     enum Section: Int, CaseIterable {
         case info
         case khels
+        case share
         case dangerZone
     }
     
@@ -40,8 +41,10 @@ class ListDetailVC: UITableViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(editListName))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark.circle"), style: .plain, target: self, action: #selector(close))
         
+        tableView.register(ListInfoCell.self, forCellReuseIdentifier: String(describing: ListInfoCell.self))
         tableView.register(KhelCell.self, forCellReuseIdentifier: KhelCell.UseType.alreadyInList.rawValue)
         tableView.register(DeleteCell.self, forCellReuseIdentifier: String(describing: DeleteCell.self))
+        tableView.register(ShareCell.self, forCellReuseIdentifier: String(describing: ShareCell.self))
         tableView.separatorStyle = .none
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0)
         tableView.backgroundColor = .secondarySystemBackground
@@ -59,6 +62,7 @@ class ListDetailVC: UITableViewController {
         
         let submitAction = UIAlertAction(title: "Save", style: .default) { [weak self, weak ac] _ in
             guard let newName = ac?.textFields?[0].text,
+                !newName.isEmpty,
                 let self = self else { return }
             let allLists = PlistManager.get(Lists.self, from: String(describing: Lists.self)) ?? Lists()
             let thisList = allLists.payload[self.index]
@@ -119,6 +123,7 @@ class ListDetailVC: UITableViewController {
         switch Section(rawValue: section) {
         case .info: return 0
         case .khels: return 8
+        case .share: return 0
         case .dangerZone: return 0
         case .none: return 0
         }
@@ -128,6 +133,7 @@ class ListDetailVC: UITableViewController {
         switch Section(rawValue: section) {
         case .info: return 0
         case .khels: return 8
+        case .share: return 0
         case .dangerZone: return 26
         case .none: return 0
         }
@@ -138,6 +144,7 @@ class ListDetailVC: UITableViewController {
         switch Section(rawValue: section) {
         case .info: return 1
         case .khels: return list.list.count
+        case .share: return 1
         case .dangerZone: return 1
         case .none: return 0
         }
@@ -148,13 +155,14 @@ class ListDetailVC: UITableViewController {
         
         switch Section(rawValue: indexPath.section) {
         case .info:
-            return UITableViewCell()
-            //You can rename the list
-            //Add more khels from the Browse All section
-        //Share list button
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ListInfoCell.self), for: indexPath) as? ListInfoCell else { return UITableViewCell() }
+            return cell
         case .khels:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: KhelCell.UseType.alreadyInList.rawValue, for: indexPath) as? KhelCell else { return UITableViewCell() }
             cell.update(list.list[indexPath.row], delegate: self)
+            return cell
+        case .share:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ShareCell.self), for: indexPath) as? ShareCell else { return UITableViewCell() }
             return cell
         case .dangerZone:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DeleteCell.self), for: indexPath) as? DeleteCell else { return UITableViewCell() }
@@ -170,6 +178,10 @@ class ListDetailVC: UITableViewController {
         switch Section(rawValue: indexPath.section) {
         case .khels:
             present(UINavigationController(rootViewController: KhelDetailVC(list.list[indexPath.row], useType: .alreadyInList)), animated: true)
+        case .share:
+            let items = ["\(list.name)\n\(list.enumeratedList)"]
+            let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+            present(ac, animated: true)
         case .dangerZone:
             deleteEntireList()
         case .none, .info:
@@ -180,7 +192,7 @@ class ListDetailVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         switch Section(rawValue: indexPath.section) {
-        case .dangerZone, .info, .none:
+        case .dangerZone, .info, .share, .none:
             return false
         case .khels:
             return true
