@@ -8,6 +8,8 @@
 
 import UIKit
 import JSSquircle
+import PlistManager
+import StatusAlert
 
 class GenerateListVC: UIViewController {
     
@@ -15,6 +17,7 @@ class GenerateListVC: UIViewController {
     // MARK: Private Properties
     //================================================================================
         
+    private weak var delegate: (UIViewController & UIAdaptivePresentationControllerDelegate)?
     private let currentCount: Int
     private let numberOfLabel = UILabel()
     private let stepper = UIStepper()
@@ -35,8 +38,9 @@ class GenerateListVC: UIViewController {
     // MARK: Init
     //================================================================================
     
-    init(_ currentCount: Int) {
+    init(_ currentCount: Int, delegate: UIViewController & UIAdaptivePresentationControllerDelegate) {
         self.currentCount = currentCount
+        self.delegate = delegate
         super.init(nibName: nil, bundle: .main)
     }
     
@@ -154,14 +158,52 @@ class GenerateListVC: UIViewController {
         let selectedCategories: [Khel.Category] = switches.enumerated().compactMap { (index, switc) in
                 return switc.isOn ? Khel.Category.allCases[index] : nil
         }
-        print(name)
-        print(selectedCategories)
-        print(stepper.value)
 //        if let presentationVC = navigationController?.presentationController {
 //            presentationVC.delegate?.presentationControllerWillDismiss?(presentationVC)
 //        }
-        //TODO: Status Alert
-        //TODO: Open newly created list on success
+        
+        if let url = Bundle.main.url(forResource: "khel", withExtension: "json") {
+            do {
+                let data = try Data(contentsOf: url)
+                let decoder = JSONDecoder()
+                let allKhels = try decoder.decode([Khel].self, from: data)
+                let shuffledKhels = allKhels.shuffled()
+                
+                var khelsList = [Khel]()
+                
+                if selectedCategories.isEmpty {
+                    khelsList = Array(shuffledKhels[0..<Int(stepper.value)])
+                } else {
+                    var index = 0
+                    while khelsList.count < Int(stepper.value) {
+                        if selectedCategories.contains(shuffledKhels[index].category) { khelsList.append(shuffledKhels[index]) }
+                        index += 1
+                    }
+                }
+                
+                let allLists = PlistManager.get(Lists.self, from: String(describing: Lists.self)) ?? Lists()
+                allLists.payload.append(List(name: name, list: khelsList))
+                PlistManager.save(allLists, plistName: String(describing: Lists.self))
+                
+                let statusAlert = StatusAlert()
+                statusAlert.image = UIImage(systemName: "checkmark")
+                statusAlert.title = "Generated"
+                statusAlert.appearance.tintColor = .label
+                statusAlert.showInKeyWindow()
+                
+                dismiss(animated: true) { [weak self] in
+                    guard let self = self,
+                        let list = PlistManager.get(Lists.self, from: String(describing: Lists.self))?.payload[self.currentCount] else { return }
+                    let nav = UINavigationController(rootViewController: ListDetailVC(list, index: self.currentCount))
+                    nav.presentationController?.delegate = self.delegate
+                    self.delegate?.present(nav, animated: true)
+                }
+                
+            } catch {
+                print("error:\(error)")
+            }
+        }
+        
     }
     
     @objc private func stepperChanged(_ stepper: UIStepper) {

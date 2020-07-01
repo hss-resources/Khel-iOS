@@ -8,7 +8,6 @@
 
 import UIKit
 import PlistManager
-import StatusAlert
 
 class ListsVC: UITableViewController {
     
@@ -71,7 +70,7 @@ class ListsVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch Section(rawValue: indexPath.section) {
         case .generate:
-            let nav = UINavigationController(rootViewController: GenerateListVC(PlistManager.get(Lists.self, from: String(describing: Lists.self))?.payload.count ?? 0))
+            let nav = UINavigationController(rootViewController: GenerateListVC(PlistManager.get(Lists.self, from: String(describing: Lists.self))?.payload.count ?? 0, delegate: self))
             nav.presentationController?.delegate = self
             present(nav, animated: true)
         case .existing:

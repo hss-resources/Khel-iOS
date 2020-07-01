@@ -8,7 +8,6 @@
 
 import UIKit
 import PlistManager
-import StatusAlert
 
 class BrowseKhelsVC: UITableViewController {
 
