@@ -23,6 +23,7 @@ class GenerateListVC: UIViewController {
     private let stepper = UIStepper()
     private let listNameInput = UITextField()
     private var scrollViewToBottom = NSLayoutConstraint()
+    private var index: Int?
     
     private var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -38,9 +39,10 @@ class GenerateListVC: UIViewController {
     // MARK: Init
     //================================================================================
     
-    init(_ currentCount: Int, delegate: UIViewController & UIAdaptivePresentationControllerDelegate) {
+    init(_ currentCount: Int, delegate: (UIViewController & UIAdaptivePresentationControllerDelegate)? = nil, index: Int? = nil) {
         self.currentCount = currentCount
         self.delegate = delegate
+        self.index = index
         super.init(nibName: nil, bundle: .main)
     }
     
@@ -58,7 +60,7 @@ class GenerateListVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardShallShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardShallHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        title = "Generate list"
+        title = self.index == nil ? "Generate list" : "Generate more"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = .systemBlue
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark.circle"), style: .plain, target: self, action: #selector(close))
@@ -101,7 +103,10 @@ class GenerateListVC: UIViewController {
         categoryLabel.font = .systemFont(ofSize: 13, weight: .bold)
         categoryLabel.textColor = .secondaryLabel
         
-        let filterViews = [listNameLabel, nameInputSquircle, sortLabel, UIStackView(arrangedSubviews: [numberOfLabel, stepper]), categoryLabel]
+        var filterViews = [sortLabel, UIStackView(arrangedSubviews: [numberOfLabel, stepper]), categoryLabel]
+        if index == nil {
+            filterViews.insert(contentsOf: [listNameLabel, nameInputSquircle], at: 0)
+        }
         
         let vStack = UIStackView(arrangedSubviews: filterViews + switchRows)
         vStack.axis = .vertical
@@ -150,7 +155,6 @@ class GenerateListVC: UIViewController {
     @objc private func generate() {
         
         guard var name = listNameInput.text else { return }
-        
         if name.isEmpty {
             name = "List \(currentCount+1)"
         }
@@ -158,9 +162,6 @@ class GenerateListVC: UIViewController {
         let selectedCategories: [Khel.Category] = switches.enumerated().compactMap { (index, switc) in
                 return switc.isOn ? Khel.Category.allCases[index] : nil
         }
-//        if let presentationVC = navigationController?.presentationController {
-//            presentationVC.delegate?.presentationControllerWillDismiss?(presentationVC)
-//        }
         
         if let url = Bundle.main.url(forResource: "khel", withExtension: "json") {
             do {
@@ -182,7 +183,11 @@ class GenerateListVC: UIViewController {
                 }
                 
                 let allLists = PlistManager.get(Lists.self, from: String(describing: Lists.self)) ?? Lists()
-                allLists.payload.append(List(name: name, list: khelsList))
+                if let index = self.index {
+                    allLists.payload[index].list += khelsList
+                } else {
+                    allLists.payload.append(List(name: name, list: khelsList))
+                }
                 PlistManager.save(allLists, plistName: String(describing: Lists.self))
                 
                 let statusAlert = StatusAlert()
@@ -191,9 +196,13 @@ class GenerateListVC: UIViewController {
                 statusAlert.appearance.tintColor = .label
                 statusAlert.showInKeyWindow()
                 
+                if let presentationVC = navigationController?.presentationController {
+                    presentationVC.delegate?.presentationControllerWillDismiss?(presentationVC)
+                }
                 dismiss(animated: true) { [weak self] in
                     guard let self = self,
-                        let list = PlistManager.get(Lists.self, from: String(describing: Lists.self))?.payload[self.currentCount] else { return }
+                        let list = PlistManager.get(Lists.self, from: String(describing: Lists.self))?.payload[self.currentCount],
+                        self.index == nil else { return }
                     let nav = UINavigationController(rootViewController: ListDetailVC(list, index: self.currentCount))
                     nav.presentationController?.delegate = self.delegate
                     self.delegate?.present(nav, animated: true)

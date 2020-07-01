@@ -15,11 +15,12 @@ class ListDetailVC: UITableViewController {
     enum Section: Int, CaseIterable {
         case info
         case khels
+        case generateMore
         case share
         case dangerZone
     }
     
-    private let list: List
+    private var list: List
     private let index: Int
     
     init(_ list: List, index: Int) {
@@ -120,7 +121,8 @@ class ListDetailVC: UITableViewController {
         switch Section(rawValue: section) {
         case .info: return 0
         case .khels: return 8
-        case .share: return 0
+        case .generateMore: return 16
+        case .share: return 8
         case .dangerZone: return 0
         case .none: return 0
         }
@@ -130,8 +132,9 @@ class ListDetailVC: UITableViewController {
         switch Section(rawValue: section) {
         case .info: return 0
         case .khels: return 8
+        case .generateMore: return 0
         case .share: return 0
-        case .dangerZone: return 26
+        case .dangerZone: return 30
         case .none: return 0
         }
     }
@@ -141,6 +144,7 @@ class ListDetailVC: UITableViewController {
         switch Section(rawValue: section) {
         case .info: return 1
         case .khels: return list.list.count
+        case .generateMore: return 1
         case .share: return 1
         case .dangerZone: return 1
         case .none: return 0
@@ -155,21 +159,26 @@ class ListDetailVC: UITableViewController {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ListInfoCell.self), for: indexPath) as? ListInfoCell else { return UITableViewCell() }
             cell.updateText("""
             Rename this list using the edit button above.
-            Add more khels from the "Browse All" section.
             Hold, drag & drop to change the order of this list.
+            Add specific khels to this list from the "Browse All" section.
+            Or surprise yourself and add randomly selected khels using "Generate more" button below.
             """)
             return cell
         case .khels:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: KhelCell.UseType.alreadyInList.rawValue, for: indexPath) as? KhelCell else { return UITableViewCell() }
             cell.update(list.list[indexPath.row], delegate: self)
             return cell
+        case .generateMore:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ButtonCell.self), for: indexPath) as? ButtonCell else { return UITableViewCell() }
+            cell.update("Generate more", systemImage: "plus.app.fill", bgColor: .systemBackground, font: .systemFont(ofSize: 17, weight: .bold), textColor: .label)
+            return cell
         case .share:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ButtonCell.self), for: indexPath) as? ButtonCell else { return UITableViewCell() }
-            cell.update("Share list", systemImage: "square.and.arrow.up", bgColor: .black)
+            cell.update("Share list", systemImage: "square.and.arrow.up", bgColor: .systemOrange, font: .systemFont(ofSize: 13, weight: .semibold), textColor: .white)
             return cell
         case .dangerZone:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ButtonCell.self), for: indexPath) as? ButtonCell else { return UITableViewCell() }
-            cell.update("Delete entire list", systemImage: "trash", bgColor: .systemRed)
+            cell.update("Delete entire list", systemImage: "trash", bgColor: .systemRed, font: .systemFont(ofSize: 13, weight: .semibold), textColor: .white)
             return cell
         case .none:
             return UITableViewCell()
@@ -182,6 +191,10 @@ class ListDetailVC: UITableViewController {
         switch Section(rawValue: indexPath.section) {
         case .khels:
             present(UINavigationController(rootViewController: KhelDetailVC(list.list[indexPath.row], useType: .alreadyInList)), animated: true)
+        case .generateMore:
+            let nav = UINavigationController(rootViewController: GenerateListVC(index, index: index))
+            nav.presentationController?.delegate = self
+            present(nav, animated: true)
         case .share:
             let items = ["\(list.name)\n\(list.enumeratedList)"]
             let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
@@ -196,7 +209,7 @@ class ListDetailVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         switch Section(rawValue: indexPath.section) {
-        case .dangerZone, .info, .share, .none:
+        case .dangerZone, .info, .share, .generateMore, .none:
             return false
         case .khels:
             return true
@@ -272,4 +285,12 @@ extension ListDetailVC: UITableViewDropDelegate {
     
     func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {}
     
+}
+
+extension ListDetailVC: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
+        let allLists = PlistManager.get(Lists.self, from: String(describing: Lists.self)) ?? Lists()
+        list = allLists.payload[index]
+        tableView.reloadData()
+    }
 }

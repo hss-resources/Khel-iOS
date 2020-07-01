@@ -28,21 +28,21 @@ class ButtonCell: UITableViewCell {
         contentView.backgroundColor = .secondarySystemBackground
         selectionStyle = .none
         button.layer.cornerRadius = 8
-        button.titleLabel?.font = .systemFont(ofSize: 13, weight: .semibold)
-        button.setTitleColor(.white, for: .normal)
-        button.tintColor = .white
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -4, bottom: 0, right: 0)
         button.pinHeight(32)
         button.isUserInteractionEnabled = false
         contentView.add(button)
-        button.pinTo(top: 8, bottom: 8, left: 16, right: 16)
+        button.pinTo(top: 0, bottom: 0, left: 16, right: 16)
         
     }
     
-    func update(_ text: String, systemImage: String, bgColor: UIColor) {
+    func update(_ text: String, systemImage: String, bgColor: UIColor, font: UIFont, textColor: UIColor) {
         button.setTitle(text, for: .normal)
-        let config = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 13, weight: .semibold))
+        button.titleLabel?.font = font
+        let config = UIImage.SymbolConfiguration(font: font)
+        button.setTitleColor(textColor, for: .normal)
+        button.tintColor = textColor
         button.setImage(UIImage(systemName: systemImage, withConfiguration: config), for: .normal)
         button.backgroundColor = bgColor
     }

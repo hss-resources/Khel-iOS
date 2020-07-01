@@ -70,8 +70,8 @@ class AboutPageVC: UITableViewController {
         switch Section(rawValue: section) {
         case .info: return 0
         case .libraries: return 8
-        case .contactSupport: return 0
-        case .openSource: return 0
+        case .contactSupport: return 16
+        case .openSource: return 16
         case .none: return 0
         }
     }
@@ -118,11 +118,11 @@ class AboutPageVC: UITableViewController {
             return cell
         case .contactSupport:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ButtonCell.self), for: indexPath) as? ButtonCell else { return UITableViewCell() }
-            cell.update("Contact developers", systemImage: "envelope", bgColor: .systemBlue)
+            cell.update("Contact developers", systemImage: "envelope", bgColor: .systemBlue, font: .systemFont(ofSize: 13, weight: .semibold), textColor: .white)
             return cell
         case .openSource:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ButtonCell.self), for: indexPath) as? ButtonCell else { return UITableViewCell() }
-            cell.update("Github repo", systemImage: "folder", bgColor: .systemBlue)
+            cell.update("Github repo", systemImage: "folder", bgColor: .systemBlue, font: .systemFont(ofSize: 13, weight: .semibold), textColor: .white)
             return cell
         case .none:
             return UITableViewCell()
