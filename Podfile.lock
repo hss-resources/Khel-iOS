@@ -1,36 +1,28 @@
 PODS:
-  - AutolayoutGradient (1.0.0)
   - JSSquircle (1.1.4)
   - LessAutolayoutBoilerplate (1.0.0)
-  - MBProgressHUD (1.2.0)
   - PlistManager (1.1.1)
   - StatusAlert (1.1.1)
 
 DEPENDENCIES:
-  - AutolayoutGradient
   - JSSquircle
   - LessAutolayoutBoilerplate
-  - MBProgressHUD
   - PlistManager
   - StatusAlert
 
 SPEC REPOS:
   trunk:
-    - AutolayoutGradient
     - JSSquircle
     - LessAutolayoutBoilerplate
-    - MBProgressHUD
     - PlistManager
     - StatusAlert
 
 SPEC CHECKSUMS:
-  AutolayoutGradient: 6aebeca7d7a818ce731e6cdc98635bede34f1262
   JSSquircle: c5f4b2500b552f67ab1b632054af92bbe8cd42f5
   LessAutolayoutBoilerplate: 5d4c2dce106215ef4b83558c825b80851fda873c
-  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   PlistManager: 6b30c78244bd549cbdc6f455f335db23b53a7bd0
   StatusAlert: a18ec3c33d36a06d4479c1f2b15ffac67aaf7ab1
 
-PODFILE CHECKSUM: 349ce3f7c12a6acaaa9b2ecd9f4ee3d027c5c8b1
+PODFILE CHECKSUM: 3536dfec3f40de0ad0e0fa50d5bc3ee2a6c57e99
 
 COCOAPODS: 1.9.3

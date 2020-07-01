@@ -5,10 +5,8 @@ use_frameworks!
 
 # Pods for Khel
 pod 'StatusAlert'
-pod 'MBProgressHUD'
 pod 'JSSquircle'
 pod 'LessAutolayoutBoilerplate'
-pod 'AutolayoutGradient'
 pod 'PlistManager'
 
 end

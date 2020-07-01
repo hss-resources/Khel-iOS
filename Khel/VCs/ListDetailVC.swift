@@ -43,8 +43,7 @@ class ListDetailVC: UITableViewController {
         
         tableView.register(ListInfoCell.self, forCellReuseIdentifier: String(describing: ListInfoCell.self))
         tableView.register(KhelCell.self, forCellReuseIdentifier: KhelCell.UseType.alreadyInList.rawValue)
-        tableView.register(DeleteCell.self, forCellReuseIdentifier: String(describing: DeleteCell.self))
-        tableView.register(ShareCell.self, forCellReuseIdentifier: String(describing: ShareCell.self))
+        tableView.register(ButtonCell.self, forCellReuseIdentifier: String(describing: ButtonCell.self))
         tableView.separatorStyle = .none
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0)
         tableView.backgroundColor = .secondarySystemBackground
@@ -154,16 +153,23 @@ class ListDetailVC: UITableViewController {
         switch Section(rawValue: indexPath.section) {
         case .info:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ListInfoCell.self), for: indexPath) as? ListInfoCell else { return UITableViewCell() }
+            cell.updateText("""
+            Rename this list using the edit button above.
+            Add more khels from the "Browse All" section.
+            Hold, drag & drop to change the order of this list.
+            """)
             return cell
         case .khels:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: KhelCell.UseType.alreadyInList.rawValue, for: indexPath) as? KhelCell else { return UITableViewCell() }
             cell.update(list.list[indexPath.row], delegate: self)
             return cell
         case .share:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ShareCell.self), for: indexPath) as? ShareCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ButtonCell.self), for: indexPath) as? ButtonCell else { return UITableViewCell() }
+            cell.update("Share list", systemImage: "square.and.arrow.up", bgColor: .black)
             return cell
         case .dangerZone:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DeleteCell.self), for: indexPath) as? DeleteCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ButtonCell.self), for: indexPath) as? ButtonCell else { return UITableViewCell() }
+            cell.update("Delete entire list", systemImage: "trash", bgColor: .systemRed)
             return cell
         case .none:
             return UITableViewCell()

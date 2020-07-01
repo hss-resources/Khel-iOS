@@ -9,10 +9,14 @@
 import UIKit
 import PlistManager
 import StatusAlert
+import SafariServices
 
 class AboutPageVC: UITableViewController {
     
-    private let libraries = [(name: "Name", url: "url", author: "author")]
+    private let libraries = [(name: "JSSquircle", url: "https://github.com/janakmshah/JSSquircle", description: "A buttery smooth corner radius in iOS", author: "Janak Shah"),
+                             (name: "LessAutolayoutBoilerplate", url: "https://github.com/janakmshah/LessAutolayoutBoilerplate", description: "A collection of useful UIView programmatic layout functions.", author: "Janak Shah"),
+                             (name: "PlistManager", url: "https://github.com/janakmshah/PlistManager", description: "Lightweight plist data management framework, leveraging Codable in Swift", author: "Janak Shah"),
+                             (name: "StatusAlert", url: "https://github.com/LowKostKustomz/StatusAlert", description: "Display Apple system-like self-hiding status alerts.", author: "Yehor Miroshnychenko")]
     
     enum Section: Int, CaseIterable {
         case info
@@ -27,9 +31,8 @@ class AboutPageVC: UITableViewController {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         tableView.register(ListInfoCell.self, forCellReuseIdentifier: String(describing: ListInfoCell.self))
-        tableView.register(KhelCell.self, forCellReuseIdentifier: KhelCell.UseType.alreadyInList.rawValue)
-        tableView.register(DeleteCell.self, forCellReuseIdentifier: String(describing: DeleteCell.self))
-        tableView.register(ShareCell.self, forCellReuseIdentifier: String(describing: ShareCell.self))
+        tableView.register(LibraryCell.self, forCellReuseIdentifier: String(describing: LibraryCell.self))
+        tableView.register(ButtonCell.self, forCellReuseIdentifier: String(describing: ButtonCell.self))
         tableView.separatorStyle = .none
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0)
         tableView.backgroundColor = .secondarySystemBackground
@@ -49,7 +52,7 @@ class AboutPageVC: UITableViewController {
             view.backgroundColor = .secondarySystemBackground
             
             let label = UILabel()
-            label.text = "Danger zone!"
+            label.text = "Libraries used:"
             label.font = .systemFont(ofSize: 13, weight: .semibold)
             label.textColor = .secondaryLabel
             
@@ -100,16 +103,26 @@ class AboutPageVC: UITableViewController {
         switch Section(rawValue: indexPath.section) {
         case .info:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ListInfoCell.self), for: indexPath) as? ListInfoCell else { return UITableViewCell() }
+            cell.updateText("""
+            This app is based on the awesome work done by Mitesh Sevani to digitise the big book of Khel.
+
+            Feedback, suggestions and questions on anything about this app is welcome, you can contact the developers using the button below.
+
+            The project is 100% open source and can be found on Github using the button below. Pull requests for improvements and extended functionality are welcome.
+            """)
             return cell
         case .libraries:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: KhelCell.UseType.alreadyInList.rawValue, for: indexPath) as? KhelCell else { return UITableViewCell() }
-            //cell.update(list.list[indexPath.row], delegate: self)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: LibraryCell.self), for: indexPath) as? LibraryCell else { return UITableViewCell() }
+            let library = libraries[indexPath.row]
+            cell.update(library.name, author: library.author, description: library.description)
             return cell
         case .contactSupport:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ShareCell.self), for: indexPath) as? ShareCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ButtonCell.self), for: indexPath) as? ButtonCell else { return UITableViewCell() }
+            cell.update("Contact developers", systemImage: "envelope", bgColor: .systemBlue)
             return cell
         case .openSource:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: DeleteCell.self), for: indexPath) as? DeleteCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ButtonCell.self), for: indexPath) as? ButtonCell else { return UITableViewCell() }
+            cell.update("Github repo", systemImage: "folder", bgColor: .systemBlue)
             return cell
         case .none:
             return UITableViewCell()
@@ -121,11 +134,19 @@ class AboutPageVC: UITableViewController {
         
         switch Section(rawValue: indexPath.section) {
         case .libraries:
-            break
+            if let url = URL(string: libraries[indexPath.row].url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
         case .contactSupport:
-            break
+            if let url = URL(string: "https://appktchn.com/contact-us/") {
+                let config = SFSafariViewController.Configuration()
+                let vc = SFSafariViewController(url: url, configuration: config)
+                present(vc, animated: true)
+            }
         case .openSource:
-            break
+            if let url = URL(string: "https://github.com/janakmshah/Khel-iOS") {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
         case .none, .info:
             return
         }

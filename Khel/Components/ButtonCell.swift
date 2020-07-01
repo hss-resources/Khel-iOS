@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ShareCell: UITableViewCell {
+class ButtonCell: UITableViewCell {
+    
+    private let button = UIButton()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -25,15 +27,10 @@ class ShareCell: UITableViewCell {
         backgroundColor = .secondarySystemBackground
         contentView.backgroundColor = .secondarySystemBackground
         selectionStyle = .none
-        let button = UIButton()
-        button.setTitle("Share list", for: .normal)
-        button.backgroundColor = .label
         button.layer.cornerRadius = 8
-        let config = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 13, weight: .semibold))
-        button.setImage(UIImage(systemName: "square.and.arrow.up", withConfiguration: config), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 13, weight: .semibold)
-        button.setTitleColor(.systemBackground, for: .normal)
-        button.tintColor = .systemBackground
+        button.setTitleColor(.white, for: .normal)
+        button.tintColor = .white
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -4, bottom: 0, right: 0)
         button.pinHeight(32)
@@ -41,6 +38,13 @@ class ShareCell: UITableViewCell {
         contentView.add(button)
         button.pinTo(top: 8, bottom: 8, left: 16, right: 16)
         
+    }
+    
+    func update(_ text: String, systemImage: String, bgColor: UIColor) {
+        button.setTitle(text, for: .normal)
+        let config = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 13, weight: .semibold))
+        button.setImage(UIImage(systemName: systemImage, withConfiguration: config), for: .normal)
+        button.backgroundColor = bgColor
     }
 
 }
