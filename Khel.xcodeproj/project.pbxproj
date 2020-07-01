@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F4125BF24AC81F9001FD658 /* AboutPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4125BE24AC81F9001FD658 /* AboutPageVC.swift */; };
 		7F58B25524A8B2C500B722E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F58B25424A8B2C500B722E0 /* AppDelegate.swift */; };
 		7F58B25724A8B2C500B722E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F58B25624A8B2C500B722E0 /* SceneDelegate.swift */; };
 		7F58B25E24A8B2C500B722E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F58B25C24A8B2C500B722E0 /* Main.storyboard */; };
@@ -33,7 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7F58B25124A8B2C500B722E0 /* Khel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Khel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F4125BE24AC81F9001FD658 /* AboutPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutPageVC.swift; sourceTree = "<group>"; };
+		7F58B25124A8B2C500B722E0 /* Khel App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Khel App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F58B25424A8B2C500B722E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F58B25624A8B2C500B722E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7F58B25D24A8B2C500B722E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,7 +97,7 @@
 		7F58B25224A8B2C500B722E0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7F58B25124A8B2C500B722E0 /* Khel.app */,
+				7F58B25124A8B2C500B722E0 /* Khel App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,6 +128,7 @@
 				7F6DD10024A92B8E00A99AA7 /* ListsVC.swift */,
 				7F6DD10224A93AE400A99AA7 /* ListDetailVC.swift */,
 				7F653BA024ABEB9500766E6A /* GenerateListVC.swift */,
+				7F4125BE24AC81F9001FD658 /* AboutPageVC.swift */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -199,7 +202,7 @@
 			);
 			name = Khel;
 			productName = Khel;
-			productReference = 7F58B25124A8B2C500B722E0 /* Khel.app */;
+			productReference = 7F58B25124A8B2C500B722E0 /* Khel App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -324,6 +327,7 @@
 				7F6DD0FF24A92AB600A99AA7 /* ListCell.swift in Sources */,
 				7F653BA124ABEB9500766E6A /* GenerateListVC.swift in Sources */,
 				7F58B25524A8B2C500B722E0 /* AppDelegate.swift in Sources */,
+				7F4125BF24AC81F9001FD658 /* AboutPageVC.swift in Sources */,
 				7F6DD10324A93AE400A99AA7 /* ListDetailVC.swift in Sources */,
 				7F58B27424A8B93C00B722E0 /* KhelCell.swift in Sources */,
 				7FAACA1724A8EAA60099EC36 /* KhelDetailVC.swift in Sources */,
@@ -485,7 +489,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.appktchn.Khel;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Khel App";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -505,7 +509,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.appktchn.Khel;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Khel App";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

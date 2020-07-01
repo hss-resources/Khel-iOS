@@ -16,8 +16,9 @@ protocol ListCellDelegate: class {
 
 class ListCell: UITableViewCell {
     
-    //TODO: Random generator (new list, or add to list)
+    //TODO: Random generator (add to existing list)
     //TODO: About page
+    //TODO: Move filter view outside of tableview and add search bar
     
     private var list: List?
     weak private var delegate: ListCellDelegate?
