@@ -8,11 +8,13 @@
 
 import UIKit
 import PlistManager
+import JSSquircle
 
 class BrowseKhelsVC: UIViewController {
 
     private let tableView = UITableView()
     private var topSpacing = NSLayoutConstraint()
+    private let searchInput = UITextField()
     
     enum SortMethod: String, CaseIterable {
         case alphabetical = "A to Z"
@@ -58,6 +60,12 @@ class BrowseKhelsVC: UIViewController {
     
     var filteredKhels: [Khel] = []
     
+    var searchedKhels: [Khel] {
+        guard let searchText = searchInput.text,
+            !searchText.isEmpty else { return filteredKhels }
+        return filteredKhels.filter { $0.name.contains(searchText) }
+    }
+    
     private lazy var filterView: UIView = {
         let filterView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 200))
         
@@ -70,6 +78,27 @@ class BrowseKhelsVC: UIViewController {
             onSwtich.addTarget(self, action: #selector(switchToggled(_:)), for: .valueChanged)
             return UIStackView(arrangedSubviews: [label, onSwtich])
         })
+        
+        let searchLabel = UILabel()
+        searchLabel.text = "Search:"
+        searchLabel.font = .systemFont(ofSize: 13, weight: .bold)
+        searchLabel.textColor = .secondaryLabel
+        
+        let searchInputSquircle = Squircle()
+        searchInputSquircle.add(searchInput)
+        searchInput.pinTo(top: 8, bottom: 8, left: 8, right: 8)
+        searchInput.font = .systemFont(ofSize: 15, weight: .medium)
+        searchInput.placeholder = "Search"
+        searchInput.clearButtonMode = .always
+        searchInput.autocorrectionType = .no
+        searchInput.spellCheckingType = .no
+        searchInput.smartDashesType = .no
+        searchInput.smartQuotesType = .no
+        searchInput.returnKeyType = .done
+        searchInput.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        searchInput.delegate = self
+        searchInputSquircle.backgroundColor = .systemBackground
+        searchInputSquircle.cornerRadius = 8
         
         let sortLabel = UILabel()
         sortLabel.text = "Sort method:"
@@ -85,7 +114,7 @@ class BrowseKhelsVC: UIViewController {
         categoryLabel.font = .systemFont(ofSize: 13, weight: .bold)
         categoryLabel.textColor = .secondaryLabel
         
-        let filterViews = [sortLabel, segementedControl, categoryLabel]
+        let filterViews = [searchLabel, searchInputSquircle, sortLabel, segementedControl, categoryLabel]
         
         let vStack = UIStackView(arrangedSubviews: filterViews + switches)
         vStack.axis = .vertical
@@ -103,6 +132,9 @@ class BrowseKhelsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Browse all"
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = .systemBlue
@@ -133,6 +165,7 @@ class BrowseKhelsVC: UIViewController {
     }
     
     @objc private func toggleFilterDrawer() {
+        dismissKeyboard()
         UIView.animate(withDuration: 0.7, animations: { [weak self] in
             guard let self = self else { return }
             self.topSpacing.constant = self.topSpacing.constant == 0 ? self.filterView.bounds.height : 0
@@ -169,17 +202,17 @@ class BrowseKhelsVC: UIViewController {
 extension BrowseKhelsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredKhels.count
+        return searchedKhels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: KhelCell.UseType.browseAll.rawValue, for: indexPath) as? KhelCell else { return UITableViewCell() }
-        cell.update(filteredKhels[indexPath.row], delegate: self)
+        cell.update(searchedKhels[indexPath.row], delegate: self)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        present(UINavigationController(rootViewController: KhelDetailVC(filteredKhels[indexPath.row], useType: .browseAll)), animated: true)
+        present(UINavigationController(rootViewController: KhelDetailVC(searchedKhels[indexPath.row], useType: .browseAll)), animated: true)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -189,12 +222,33 @@ extension BrowseKhelsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 8
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        dismissKeyboard()
+    }
 
 }
 
 extension BrowseKhelsVC: KhelCellDelegate {
     func handleLeftButton(_ khel: Khel) {
         ListManager.add(khel, vc: self)
+    }
+    
+}
+
+extension BrowseKhelsVC: UITextFieldDelegate {
+    
+    @objc private func textFieldDidChange() {
+        tableView.reloadSections(IndexSet(integersIn: 0...0), with: .fade)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
 }
