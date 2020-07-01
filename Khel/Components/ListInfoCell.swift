@@ -35,7 +35,7 @@ class ListInfoCell: UITableViewCell {
         
     }
     
-    func updateText(_ text: String){
+    func updateText(_ text: String) {
         label.text = text
     }
 

@@ -9,8 +9,11 @@
 import UIKit
 import PlistManager
 
-class BrowseKhelsVC: UITableViewController {
+class BrowseKhelsVC: UIViewController {
 
+    private let tableView = UITableView()
+    private var topSpacing = NSLayoutConstraint()
+    
     enum SortMethod: String, CaseIterable {
         case alphabetical = "A to Z"
         case random = "Randomise"
@@ -55,66 +58,7 @@ class BrowseKhelsVC: UITableViewController {
     
     var filteredKhels: [Khel] = []
     
-    var filterOpen = false
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.title = "Browse all"
-        
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.tintColor = .systemBlue
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3.decrease.circle"), style: .plain, target: self, action: #selector(toggleFilterDrawer))
-        
-        tableView.register(KhelCell.self, forCellReuseIdentifier: KhelCell.UseType.browseAll.rawValue)
-        tableView.separatorStyle = .none
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0)
-        tableView.backgroundColor = .secondarySystemBackground
-        tableView.sectionHeaderHeight = UITableView.automaticDimension
-        tableView.estimatedSectionHeaderHeight = 50
-        tableView.rowHeight = UITableView.automaticDimension
-        
-        filterKhels()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
-    }
-    
-    @objc private func toggleFilterDrawer() {
-        filterOpen = !filterOpen
-        tableView.reloadSections(IndexSet(integersIn: 0...0), with: .fade)
-        if filterOpen {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3.decrease.circle.fill"), style: .plain, target: self, action: #selector(toggleFilterDrawer))
-        } else {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3.decrease.circle"), style: .plain, target: self, action: #selector(toggleFilterDrawer))
-        }
-    }
-    
-    @objc private func switchToggled(_ sender: UISwitch) {
-        let category = Khel.Category.allCases[sender.tag]
-        if selectedCategories.contains(category) {
-            selectedCategories.removeAll { $0 == category }
-        } else {
-            selectedCategories.append(category)
-        }
-        filterKhels()
-        tableView.reloadSections(IndexSet(integersIn: 0...0), with: .fade)
-    }
-    
-    @objc private func sortMethodChanged(_ sender: UISegmentedControl) {
-        sortMethod = SortMethod.allCases[sender.selectedSegmentIndex]
-        filterKhels()
-        tableView.reloadSections(IndexSet(integersIn: 0...0), with: .fade)
-    }
-
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        guard filterOpen else {
-            let header = UIView()
-            header.pinHeight(8)
-            return header
-        }
-                
+    private lazy var filterView: UIView = {
         let filterView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 200))
         
         let switches: [UIView] = Khel.Category.allCases.map({
@@ -122,7 +66,6 @@ class BrowseKhelsVC: UITableViewController {
             label.font = .systemFont(ofSize: 15, weight: .semibold)
             label.text = $0.rawValue
             let onSwtich = UISwitch()
-            onSwtich.isOn = selectedCategories.contains($0)
             onSwtich.tag = Khel.Category.allCases.firstIndex(of: $0) ?? 0
             onSwtich.addTarget(self, action: #selector(switchToggled(_:)), for: .valueChanged)
             return UIStackView(arrangedSubviews: [label, onSwtich])
@@ -153,21 +96,98 @@ class BrowseKhelsVC: UITableViewController {
         filterView.backgroundColor = .secondarySystemBackground
         filterView.add(vStack)
         vStack.pinTo(top: 8, bottom: 8, left: 24, right: 24)
+        filterView.alpha = 0
         return filterView
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "Browse all"
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.tintColor = .systemBlue
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3.decrease.circle"), style: .plain, target: self, action: #selector(toggleFilterDrawer))
+        
+        view.add(tableView, filterView)
+        tableView.pinTo(left: 0, right: 0)
+        filterView.pinTo(left: 0, right: 0)
+        topSpacing = tableView.topAnchor.constraint(equalTo: view.topAnchor)
+        topSpacing.isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: filterView.bottomAnchor).isActive = true
+                
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(KhelCell.self, forCellReuseIdentifier: KhelCell.UseType.browseAll.rawValue)
+        tableView.separatorStyle = .none
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 16, right: 0)
+        tableView.backgroundColor = .secondarySystemBackground
+        view.backgroundColor = .secondarySystemBackground
+        tableView.rowHeight = UITableView.automaticDimension
+        
+        filterKhels()
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
+    @objc private func toggleFilterDrawer() {
+        UIView.animate(withDuration: 0.7, animations: { [weak self] in
+            guard let self = self else { return }
+            self.topSpacing.constant = self.topSpacing.constant == 0 ? self.filterView.bounds.height : 0
+            self.filterView.alpha = self.topSpacing.constant == 0 ? 0 : 1
+            self.view.layoutIfNeeded()
+        }) { [weak self] (_) in
+            if self?.topSpacing.constant == 0 {
+                self?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3.decrease.circle"), style: .plain, target: self, action: #selector(self?.toggleFilterDrawer))
+            } else {
+                self?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3.decrease.circle.fill"), style: .plain, target: self, action: #selector(self?.toggleFilterDrawer))
+            }
+        }
+    }
+    
+    @objc private func switchToggled(_ sender: UISwitch) {
+        let category = Khel.Category.allCases[sender.tag]
+        if selectedCategories.contains(category) {
+            selectedCategories.removeAll { $0 == category }
+        } else {
+            selectedCategories.append(category)
+        }
+        filterKhels()
+        tableView.reloadSections(IndexSet(integersIn: 0...0), with: .fade)
+    }
+    
+    @objc private func sortMethodChanged(_ sender: UISegmentedControl) {
+        sortMethod = SortMethod.allCases[sender.selectedSegmentIndex]
+        filterKhels()
+        tableView.reloadSections(IndexSet(integersIn: 0...0), with: .fade)
+    }
+
+}
+
+extension BrowseKhelsVC: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredKhels.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: KhelCell.UseType.browseAll.rawValue, for: indexPath) as? KhelCell else { return UITableViewCell() }
         cell.update(filteredKhels[indexPath.row], delegate: self)
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         present(UINavigationController(rootViewController: KhelDetailVC(filteredKhels[indexPath.row], useType: .browseAll)), animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 8
     }
 
 }

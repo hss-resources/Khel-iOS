@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="eP0-vr-xkf" kind="relationship" relationship="rootViewController" id="xTz-HV-wif"/>
+                        <segue destination="fSu-uM-dbY" kind="relationship" relationship="rootViewController" id="1C3-so-UVz"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3S6-uS-r6v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -24,28 +25,25 @@
             <point key="canvasLocation" x="1532" y="-311"/>
         </scene>
         <!--Browse KhelsVC-->
-        <scene sceneID="dOZ-jc-SZA">
+        <scene sceneID="KPL-EY-luV">
             <objects>
-                <tableViewController id="eP0-vr-xkf" customClass="BrowseKhelsVC" customModule="Khel" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="28w-Bq-cpJ">
+                <viewController id="fSu-uM-dbY" customClass="BrowseKhelsVC" customModule="Khel_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BSW-Nh-OkF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <connections>
-                            <outlet property="dataSource" destination="eP0-vr-xkf" id="hdI-8P-HnW"/>
-                            <outlet property="delegate" destination="eP0-vr-xkf" id="ZtA-aZ-RQv"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="lKI-H3-yRX"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zkk-8R-lBd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <viewLayoutGuide key="safeArea" id="Brg-sM-wYx"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ttq-G1-EO7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lUo-NN-8Nb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2451" y="-311"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="wJ6-xe-u9m">
             <objects>
-                <tableViewController id="aoc-uH-1lh" customClass="ListsVC" customModule="Khel" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="aoc-uH-1lh" customClass="ListsVC" customModule="Khel_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Lfm-hY-IHa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,7 +62,7 @@
         <!--Root View Controller-->
         <scene sceneID="iwV-YU-mtl">
             <objects>
-                <tableViewController id="h10-gT-PiB" customClass="AboutPageVC" customModule="Khel" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="h10-gT-PiB" customClass="AboutPageVC" customModule="Khel_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JgO-R0-2ZE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
