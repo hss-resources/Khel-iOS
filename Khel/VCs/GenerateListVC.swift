@@ -177,6 +177,16 @@ class GenerateListVC: UIViewController {
                 } else {
                     var index = 0
                     while khelsList.count < Int(stepper.value) {
+                        
+                        if shuffledKhels.count-1 == index {
+                            let statusAlert = StatusAlert()
+                            statusAlert.image = UIImage(systemName: "checkmark")
+                            statusAlert.title = "Max added"
+                            statusAlert.appearance.tintColor = .label
+                            statusAlert.showInKeyWindow()
+                            break
+                        }
+                        
                         if selectedCategories.contains(shuffledKhels[index].category) { khelsList.append(shuffledKhels[index]) }
                         index += 1
                     }

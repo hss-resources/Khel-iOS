@@ -108,7 +108,7 @@ class AboutPageVC: UITableViewController {
 
             Feedback, suggestions and questions on anything about this app is welcome, you can contact the developers using the button below.
 
-            The project is 100% open source and can be found on Github using the button below. Pull requests for improvements and extended functionality are welcome.
+            The project is 100% open source and can be found on Github using the button below. Pull requests for improvements and extending functionality are welcome.
             """)
             return cell
         case .libraries:

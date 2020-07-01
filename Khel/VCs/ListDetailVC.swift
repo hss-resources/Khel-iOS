@@ -243,7 +243,7 @@ extension ListDetailVC: KhelCellDelegate {
         list.list = thisList.list
         PlistManager.save(allLists, plistName: String(describing: Lists.self))
         showRemovedSuccessAlert()
-        tableView.reloadSections(IndexSet(integersIn: 0...0), with: .none)
+        tableView.reloadSections(IndexSet(integersIn: Section.khels.rawValue...Section.khels.rawValue), with: .none)
     }
     
     private func showRemovedSuccessAlert() {

@@ -134,6 +134,7 @@ class BrowseKhelsVC: UIViewController {
         self.title = "Browse all"
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
         navigationController?.navigationBar.prefersLargeTitles = true
