@@ -138,13 +138,13 @@ class BrowseKhelsVC: UIViewController {
             self.topSpacing.constant = self.topSpacing.constant == 0 ? self.filterView.bounds.height : 0
             self.filterView.alpha = self.topSpacing.constant == 0 ? 0 : 1
             self.view.layoutIfNeeded()
-        }) { [weak self] (_) in
-            if self?.topSpacing.constant == 0 {
-                self?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3.decrease.circle"), style: .plain, target: self, action: #selector(self?.toggleFilterDrawer))
-            } else {
-                self?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3.decrease.circle.fill"), style: .plain, target: self, action: #selector(self?.toggleFilterDrawer))
-            }
-        }
+            }, completion: { [weak self] (_) in
+                if self?.topSpacing.constant == 0 {
+                    self?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3.decrease.circle"), style: .plain, target: self, action: #selector(self?.toggleFilterDrawer))
+                } else {
+                    self?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3.decrease.circle.fill"), style: .plain, target: self, action: #selector(self?.toggleFilterDrawer))
+                }
+        })
     }
     
     @objc private func switchToggled(_ sender: UISwitch) {
