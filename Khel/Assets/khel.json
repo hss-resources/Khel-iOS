@@ -572,5 +572,103 @@
     "aim": "To work together in a team and form a platform with dands and lift a swayamsevak",
     "description": "All the swayamsevaks will be standing on the edge of a circle holding a dand. They will then point the dands to the centre of the circle and thereby create platform in the centre. A nominated swayamsevak will then stand on the dand. Together they must raise the dand and thereby lift the swayamsevak",
     "category": "Dand"
+  },
+  {
+    "name": "1 minute speaking challenge",
+    "meaning": "",
+    "aim": "Speak on any given topic for 1 minute",
+    "description": "Shikshak gives any topic or word to one person and they must speak on it for 1 minute.",
+    "category": "E-Khel"
+  },
+  {
+    "name": " Neta Pehchano",
+    "meaning": "Identify the leader",
+    "aim": "Guess the leader",
+    "description": "One person thinks of an inspiring hindu personality and everyone as a team has to guess who the personality is by asking questions. Only 'yes' or 'no' answers. Give a limit to questions.",
+    "category": "E-Khel"
+  },
+  {
+    "name": "Mahapurush",
+    "meaning": "Great personailty",
+    "aim": "Quickly come into the named personality's posture",
+    "description": "As the shikshak names the personality, everyone comes to the position / pose which best represents that personality. If a person is late or is incorrect, they are out. Other personalities can be added / changed. Personalities such as Gandhiji, Swamiji, Netaji, Drji can be used.",
+    "category": "E-Khel"
+  },
+  {
+    "name": "Dus",
+    "meaning": "Ten",
+    "aim": "To count to 10 as a group without saying the number at the same time",
+    "description": "As a group, you try to count to 10 without anyone saying a number at the same time. Start from 1 every time a number is said by more than one person.",
+    "category": "E-Khel"
+  },
+  {
+    "name": "Vyakti Pahchaano",
+    "meaning": "Who am I?",
+    "aim": "Identify the personality",
+    "description": "Shikshak reads out description of a God or famous personality and the group must try and identify who it is.",
+    "category": "E-Khel"
+  },
+  {
+    "name": "Khajaane Kee Khoj",
+    "meaning": "Treasure Hunt",
+    "aim": "Be the first to find the item",
+    "description": "Shikshak calls out an item and the S'sevaks are required to search the room/house and bring it back and show it on screen. The first person to show the item wins. Another variation is give clues for the items and the S'sevaks/sevikas will need to figure out what the item is and searc for it. Example of items; Sock, Keys, Spoon, Book, Pen etc.",
+    "category": "E-Khel"
+  },
+  {
+    "name": "Pictionary",
+    "meaning": "Pictionary",
+    "aim": "Guess the word / phrase",
+    "description": "Everyone is given something to draw (this can be given before shakha/BG or using the private chat function on the virtual platform). They have a minute to draw and then one by one show on their cameras what they have drawn. The rest will then guess what the word/phrase is.",
+    "category": "E-Khel"
+  },
+  {
+    "name": "Radha Krishna, Ram Sita",
+    "meaning": "Radha Krishna, Ram Sita",
+    "aim": "Jump in the correct direction",
+    "description": "Radha = Jump to the left, Kirshna = Jump to the right, Ram = Jump forward = Sita Jump backwards. Shikshak can say any name, if the same name is called twice in a row they should not move. If they are out they should sit down.",
+    "category": "E-Khel"
+  },
+  {
+    "name": "Memory Game",
+    "meaning": "Memory Game",
+    "aim": "memorise the items",
+    "description": "Select 8 items and then display them on the screen. Then ask selected s'svaks to call out 5 of the items they had seen. For example: black pen, blue book, ruler, hat, bottle.",
+    "category": "E-Khel"
+  },
+  {
+    "name": "Sangh Agna",
+    "meaning": "Sangh Orders",
+    "aim": "Follow and perform the correct agya",
+    "description": "Shikshak gives random Sangh agnas (orders) and everyone must follow the agna. If a mistake is made, then that person is out. You can make it more difficult by adding the rule where you only follow the agna if “Sangh” precedes the agna.",
+    "category": "E-Khel"
+  },
+  {
+    "name": "Ram-Shyam",
+    "meaning": "Ram-Shyam",
+    "aim": "Correctly position hands according to instruction",
+    "description": "When the shikshak says Ram, palms face up and when shikshak say Shyam, palms face down. Anyone moving their hands when not supposed to or incorrectly is out.",
+    "category": "E-Khel"
+  },
+  {
+    "name": "Crack the Code",
+    "meaning": "Crack the Code",
+    "aim": "Crack the code",
+    "description": "Assign letters to a number and create math questions to give the answers matching to the numbers assigned to letters. You can use these questions to create words or phrases. The swayamsevaks and sevikas will have to crack the words/phrases by answering the maths questions. Please see link on the right hand collumn for examples.",
+    "category": "E-Khel"
+  },
+  {
+    "name": "Guess the Geet",
+    "meaning": "Guess the Geet",
+    "aim": "Guess the Geet",
+    "description": "One person will sing a line of a geet and the others have to guess it. The aim of this khel is to choose a geet that you think no one will get. This khel can be played by all age groups from Bal to Proudh",
+    "category": "E-Khel"
+  },
+  {
+    "name": "Geet Antakshari",
+    "meaning": "Geet Antakshari",
+    "aim": "Continue the geet chain",
+    "description": "Normal antakshari rules but with sangh geets. One person starts off with a geet and the ending letter is the starting letter of the next geet that the next person will have to sing. This keeps on going untill for 5 mins or however long it takes to ensure everyone gets a turn.",
+    "category": "E-Khel"
   }
 ]
