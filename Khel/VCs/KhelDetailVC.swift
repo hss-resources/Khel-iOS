@@ -66,17 +66,6 @@ class KhelDetailVC: UIViewController {
         categoryContainer.add(categoryLabel)
         categoryLabel.pinTo(top: 3, bottom: 3, left: 6, right: 6)
         
-        let meaningLabel = UILabel()
-        meaningLabel.font = .systemFont(ofSize: 13, weight: .bold)
-        meaningLabel.numberOfLines = 0
-        meaningLabel.text = "Meaning:"
-        
-        let meaning = UILabel()
-        meaning.font = .systemFont(ofSize: 13, weight: .medium)
-        meaning.textColor = .secondaryLabel
-        meaning.numberOfLines = 0
-        meaning.text = khel.meaning
-        
         let aimLabel = UILabel()
         aimLabel.font = .systemFont(ofSize: 13, weight: .bold)
         aimLabel.numberOfLines = 0
@@ -99,13 +88,27 @@ class KhelDetailVC: UIViewController {
         description.numberOfLines = 0
         description.text = khel.description
         
-        let vStack = UIStackView(arrangedSubviews: [categoryContainer,
-                                                    meaningLabel,
-                                                    meaning,
-                                                    aimLabel,
-                                                    aim,
-                                                    descriptionLabel,
-                                                    description])
+        var views: [UIView] = [categoryContainer]
+        
+        if let meaningText = khel.meaning {
+            
+            let meaningLabel = UILabel()
+            meaningLabel.font = .systemFont(ofSize: 13, weight: .bold)
+            meaningLabel.numberOfLines = 0
+            meaningLabel.text = "Meaning:"
+            
+            let meaning = UILabel()
+            meaning.font = .systemFont(ofSize: 13, weight: .medium)
+            meaning.textColor = .secondaryLabel
+            meaning.numberOfLines = 0
+            meaning.text = meaningText
+            
+            views += [meaningLabel, meaning]
+        }
+        
+        views += [aimLabel, aim, descriptionLabel, description]
+        
+        let vStack = UIStackView(arrangedSubviews: views)
         vStack.alignment = .leading
         vStack.axis = .vertical
         vStack.distribution = .equalSpacing
@@ -155,9 +158,17 @@ class KhelDetailVC: UIViewController {
     }
     
     @objc private func shareKhelInfo() {
-        let items = ["\(khel.name) - \(khel.category.rawValue)\n\nMeaning:\n\(khel.meaning)\n\nAim:\n\(khel.aim)\n\nDescription:\n\(khel.description)"]
+        
+        var detailsString = "\(khel.name) - \(khel.category.rawValue)\n\nAim:\n\(khel.aim)\n\nDescription:\n\(khel.description)"
+        
+        if let meaning = khel.meaning {
+            detailsString = "\(khel.name) - \(khel.category.rawValue)\n\nMeaning:\n\(meaning)\n\nAim:\n\(khel.aim)\n\nDescription:\n\(khel.description)"
+        }
+        
+        let items = [detailsString]
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(ac, animated: true)
+        
     }
     
     @objc private func contactSupport() {

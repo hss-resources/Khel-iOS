@@ -15,10 +15,7 @@ protocol ListCellDelegate: class {
 }
 
 class ListCell: UITableViewCell {
-    
-    //TODO: Random generator (add to existing list)
-    //TODO: add search bar
-    
+        
     private var list: List?
     weak private var delegate: ListCellDelegate?
     

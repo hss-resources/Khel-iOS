@@ -10,7 +10,7 @@ import UIKit
 
 struct Khel: Codable, Equatable {
     let name: String
-    let meaning: String
+    let meaning: String?
     let aim: String
     let description: String
     let category: Category
@@ -22,6 +22,7 @@ struct Khel: Codable, Equatable {
         case team = "Team"
         case sittingDown = "Sitting down"
         case dand = "Dand"
+        case ekhel = "E-Khel"
         
         var color: UIColor {
             switch self {
@@ -31,8 +32,36 @@ struct Khel: Codable, Equatable {
             case .team: return UIColor.systemBlue
             case .sittingDown: return UIColor.systemTeal
             case .dand: return UIColor.systemPink
+            case .ekhel: return UIColor.systemYellow
             }
         }
+    }
+    
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case meaning
+        case aim
+        case description
+        case category
+    }
+    
+    init(from decoder: Decoder) throws {
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        name = try container.decode(String.self, forKey: .name)
+        aim = try container.decode(String.self, forKey: .aim)
+        description = try container.decode(String.self, forKey: .description)
+        category = try container.decode(Category.self, forKey: .category)
+        
+        guard let rawMeaning = try? container.decode(String.self, forKey: .meaning),
+            rawMeaning != name,
+            !rawMeaning.isEmpty else {
+                meaning = nil
+                return
+        }
+        
+        meaning = rawMeaning
+        
     }
     
 }
