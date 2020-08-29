@@ -21,7 +21,7 @@ class List: Codable {
     
     var enumeratedList: String {
         list.enumerated().map({ index, khel -> String in
-            "\(index+1). \(khel.name)"
+            "\(index+1). \(khel.name) (\(khel.category.rawValue.localizedCapitalized))"
         }).joined(separator: "\n")
     }
     
