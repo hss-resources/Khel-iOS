@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B2E0B00BE4DE64A4D42CB4C /* Pods_KhelWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4D369B9AF8CE3EF1F0537BB /* Pods_KhelWidgetExtension.framework */; };
+		7F2B44BA25168007001BBD3F /* Khel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F58B26D24A8B63900B722E0 /* Khel.swift */; };
 		7F4125BF24AC81F9001FD658 /* AboutPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4125BE24AC81F9001FD658 /* AboutPageVC.swift */; };
 		7F47777624ACDEFB00A12533 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F47777524ACDEFB00A12533 /* LibraryCell.swift */; };
 		7F58B25524A8B2C500B722E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F58B25424A8B2C500B722E0 /* AppDelegate.swift */; };
@@ -27,11 +29,41 @@
 		7F6DD0FF24A92AB600A99AA7 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DD0FE24A92AB600A99AA7 /* ListCell.swift */; };
 		7F6DD10124A92B8E00A99AA7 /* ListsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DD10024A92B8E00A99AA7 /* ListsVC.swift */; };
 		7F6DD10324A93AE400A99AA7 /* ListDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F6DD10224A93AE400A99AA7 /* ListDetailVC.swift */; };
+		7FA301142516ABBF00D3F220 /* PlistStructsWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA301102516ABBC00D3F220 /* PlistStructsWidget.swift */; };
 		7FAACA1724A8EAA60099EC36 /* KhelDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAACA1624A8EAA60099EC36 /* KhelDetailVC.swift */; };
 		7FBB963D24A8D31E00E25BE9 /* khel.json in Resources */ = {isa = PBXBuildFile; fileRef = 7FBB963C24A8D31E00E25BE9 /* khel.json */; };
 		7FBB963F24A8DCCE00E25BE9 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FBB963E24A8DCCE00E25BE9 /* Theme.swift */; };
+		7FC2A37825163A35007B4CD5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FC2A37725163A35007B4CD5 /* WidgetKit.framework */; };
+		7FC2A37A25163A35007B4CD5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FC2A37925163A35007B4CD5 /* SwiftUI.framework */; };
+		7FC2A37D25163A35007B4CD5 /* KhelWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC2A37C25163A35007B4CD5 /* KhelWidget.swift */; };
+		7FC2A37F25163A36007B4CD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FC2A37E25163A36007B4CD5 /* Assets.xcassets */; };
+		7FC2A38325163A36007B4CD5 /* KhelWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7FC2A37625163A35007B4CD5 /* KhelWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F671D74005CBF2BE77E4F6A3 /* Pods_Khel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F00D55CD9A5C601EF97BDF2D /* Pods_Khel.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7FC2A38125163A36007B4CD5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7F58B24924A8B2C500B722E0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7FC2A37525163A35007B4CD5;
+			remoteInfo = KhelWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7FC2A38425163A36007B4CD5 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7FC2A38325163A36007B4CD5 /* KhelWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7F4125BE24AC81F9001FD658 /* AboutPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutPageVC.swift; sourceTree = "<group>"; };
@@ -56,9 +88,19 @@
 		7F6DD0FE24A92AB600A99AA7 /* ListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		7F6DD10024A92B8E00A99AA7 /* ListsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListsVC.swift; sourceTree = "<group>"; };
 		7F6DD10224A93AE400A99AA7 /* ListDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDetailVC.swift; sourceTree = "<group>"; };
+		7FA301102516ABBC00D3F220 /* PlistStructsWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistStructsWidget.swift; sourceTree = "<group>"; };
 		7FAACA1624A8EAA60099EC36 /* KhelDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhelDetailVC.swift; sourceTree = "<group>"; };
 		7FBB963C24A8D31E00E25BE9 /* khel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = khel.json; sourceTree = "<group>"; };
 		7FBB963E24A8DCCE00E25BE9 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		7FC2A37625163A35007B4CD5 /* KhelWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = KhelWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FC2A37725163A35007B4CD5 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		7FC2A37925163A35007B4CD5 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		7FC2A37C25163A35007B4CD5 /* KhelWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KhelWidget.swift; sourceTree = "<group>"; };
+		7FC2A37E25163A36007B4CD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7FC2A38025163A36007B4CD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8036C4C84B11206C02C6AE4E /* Pods-KhelWidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KhelWidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-KhelWidgetExtension/Pods-KhelWidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
+		873CBE0BCD612A1FFDACCAD8 /* Pods-KhelWidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KhelWidgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-KhelWidgetExtension/Pods-KhelWidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
+		A4D369B9AF8CE3EF1F0537BB /* Pods_KhelWidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KhelWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB0C7D12BC34642D9530893F /* Pods-Khel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Khel.release.xcconfig"; path = "Target Support Files/Pods-Khel/Pods-Khel.release.xcconfig"; sourceTree = "<group>"; };
 		C20AC9E6D33D4638D0219CD0 /* Pods-Khel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Khel.debug.xcconfig"; path = "Target Support Files/Pods-Khel/Pods-Khel.debug.xcconfig"; sourceTree = "<group>"; };
 		F00D55CD9A5C601EF97BDF2D /* Pods_Khel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Khel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +115,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7FC2A37325163A35007B4CD5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FC2A37A25163A35007B4CD5 /* SwiftUI.framework in Frameworks */,
+				7FC2A37825163A35007B4CD5 /* WidgetKit.framework in Frameworks */,
+				6B2E0B00BE4DE64A4D42CB4C /* Pods_KhelWidgetExtension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -80,6 +132,9 @@
 			isa = PBXGroup;
 			children = (
 				F00D55CD9A5C601EF97BDF2D /* Pods_Khel.framework */,
+				7FC2A37725163A35007B4CD5 /* WidgetKit.framework */,
+				7FC2A37925163A35007B4CD5 /* SwiftUI.framework */,
+				A4D369B9AF8CE3EF1F0537BB /* Pods_KhelWidgetExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -88,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				7F58B25324A8B2C500B722E0 /* Khel */,
+				7FC2A37B25163A35007B4CD5 /* KhelWidget */,
 				7F58B25224A8B2C500B722E0 /* Products */,
 				943CBFE5654C7116C9DC516A /* Pods */,
 				08434E917905EA1ADA88B4DB /* Frameworks */,
@@ -98,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				7F58B25124A8B2C500B722E0 /* Khel App.app */,
+				7FC2A37625163A35007B4CD5 /* KhelWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -173,11 +230,24 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		7FC2A37B25163A35007B4CD5 /* KhelWidget */ = {
+			isa = PBXGroup;
+			children = (
+				7FA301102516ABBC00D3F220 /* PlistStructsWidget.swift */,
+				7FC2A37C25163A35007B4CD5 /* KhelWidget.swift */,
+				7FC2A37E25163A36007B4CD5 /* Assets.xcassets */,
+				7FC2A38025163A36007B4CD5 /* Info.plist */,
+			);
+			path = KhelWidget;
+			sourceTree = "<group>";
+		};
 		943CBFE5654C7116C9DC516A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				C20AC9E6D33D4638D0219CD0 /* Pods-Khel.debug.xcconfig */,
 				AB0C7D12BC34642D9530893F /* Pods-Khel.release.xcconfig */,
+				873CBE0BCD612A1FFDACCAD8 /* Pods-KhelWidgetExtension.debug.xcconfig */,
+				8036C4C84B11206C02C6AE4E /* Pods-KhelWidgetExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -195,15 +265,35 @@
 				7F58B24F24A8B2C500B722E0 /* Resources */,
 				88F3DE288AF70DD64C9BE54E /* [CP] Embed Pods Frameworks */,
 				7FAACA1B24A906B90099EC36 /* Run Swiftlint */,
+				7FC2A38425163A36007B4CD5 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7FC2A38225163A36007B4CD5 /* PBXTargetDependency */,
 			);
 			name = Khel;
 			productName = Khel;
 			productReference = 7F58B25124A8B2C500B722E0 /* Khel App.app */;
 			productType = "com.apple.product-type.application";
+		};
+		7FC2A37525163A35007B4CD5 /* KhelWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7FC2A38725163A36007B4CD5 /* Build configuration list for PBXNativeTarget "KhelWidgetExtension" */;
+			buildPhases = (
+				734C09B420EAED9A2C07FA44 /* [CP] Check Pods Manifest.lock */,
+				7FC2A37225163A35007B4CD5 /* Sources */,
+				7FC2A37325163A35007B4CD5 /* Frameworks */,
+				7FC2A37425163A35007B4CD5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KhelWidgetExtension;
+			productName = KhelWidgetExtension;
+			productReference = 7FC2A37625163A35007B4CD5 /* KhelWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -211,12 +301,15 @@
 		7F58B24924A8B2C500B722E0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1140;
+				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "App Ktchn";
 				TargetAttributes = {
 					7F58B25024A8B2C500B722E0 = {
 						CreatedOnToolsVersion = 11.4;
+					};
+					7FC2A37525163A35007B4CD5 = {
+						CreatedOnToolsVersion = 12.0;
 					};
 				};
 			};
@@ -234,6 +327,7 @@
 			projectRoot = "";
 			targets = (
 				7F58B25024A8B2C500B722E0 /* Khel */,
+				7FC2A37525163A35007B4CD5 /* KhelWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -250,9 +344,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7FC2A37425163A35007B4CD5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FC2A37F25163A36007B4CD5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		734C09B420EAED9A2C07FA44 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KhelWidgetExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7FAACA1B24A906B90099EC36 /* Run Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -339,7 +463,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7FC2A37225163A35007B4CD5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7FC2A37D25163A35007B4CD5 /* KhelWidget.swift in Sources */,
+				7FA301142516ABBF00D3F220 /* PlistStructsWidget.swift in Sources */,
+				7F2B44BA25168007001BBD3F /* Khel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7FC2A38225163A36007B4CD5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7FC2A37525163A35007B4CD5 /* KhelWidgetExtension */;
+			targetProxy = 7FC2A38125163A36007B4CD5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7F58B25C24A8B2C500B722E0 /* Main.storyboard */ = {
@@ -479,9 +621,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C20AC9E6D33D4638D0219CD0 /* Pods-Khel.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = GJ6558HKQT;
 				INFOPLIST_FILE = Khel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -489,7 +632,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appktchn.Khel;
 				PRODUCT_NAME = "Khel App";
 				SWIFT_VERSION = 5.0;
@@ -501,9 +644,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AB0C7D12BC34642D9530893F /* Pods-Khel.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = GJ6558HKQT;
 				INFOPLIST_FILE = Khel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -511,11 +655,61 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appktchn.Khel;
 				PRODUCT_NAME = "Khel App";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		7FC2A38525163A36007B4CD5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 873CBE0BCD612A1FFDACCAD8 /* Pods-KhelWidgetExtension.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GJ6558HKQT;
+				INFOPLIST_FILE = KhelWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appktchn.Khel.KhelWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7FC2A38625163A36007B4CD5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8036C4C84B11206C02C6AE4E /* Pods-KhelWidgetExtension.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GJ6558HKQT;
+				INFOPLIST_FILE = KhelWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appktchn.Khel.KhelWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -536,6 +730,15 @@
 			buildConfigurations = (
 				7F58B26824A8B2C500B722E0 /* Debug */,
 				7F58B26924A8B2C500B722E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7FC2A38725163A36007B4CD5 /* Build configuration list for PBXNativeTarget "KhelWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7FC2A38525163A36007B4CD5 /* Debug */,
+				7FC2A38625163A36007B4CD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

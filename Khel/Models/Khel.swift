@@ -9,6 +9,7 @@
 import UIKit
 
 struct Khel: Codable, Equatable {
+    
     let name: String
     let meaning: String?
     let aim: String
@@ -43,6 +44,14 @@ struct Khel: Codable, Equatable {
         case aim
         case description
         case category
+    }
+    
+    internal init(name: String, meaning: String?, aim: String, description: String, category: Khel.Category) {
+        self.name = name
+        self.meaning = meaning
+        self.aim = aim
+        self.description = description
+        self.category = category
     }
     
     init(from decoder: Decoder) throws {
