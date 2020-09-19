@@ -118,7 +118,9 @@ struct KhelWidgetEntryView: View {
                 Spacer()
             }
             Spacer()
-        }).padding(16)
+        })
+        .padding(16)
+        .widgetURL(URL(string: "khel.widget://" + khel.name ))
     }
 }
 
