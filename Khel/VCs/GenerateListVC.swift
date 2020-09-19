@@ -170,12 +170,23 @@ class GenerateListVC: UIViewController {
                 let allKhels = try decoder.decode([Khel].self, from: data)
                 let shuffledKhels = allKhels.shuffled()
                 
-                var khelsList = [Khel]()
+                var khelsList: [Khel]
                 
                 if selectedCategories.isEmpty {
-                    khelsList = Array(shuffledKhels[0..<Int(stepper.value)])
+                    if shuffledKhels.count < Int(stepper.value) {
+                        khelsList = shuffledKhels
+                        
+                        let statusAlert = StatusAlert()
+                        statusAlert.image = UIImage(systemName: "checkmark")
+                        statusAlert.title = "Max added"
+                        statusAlert.appearance.tintColor = .label
+                        statusAlert.showInKeyWindow()
+                    } else {
+                        khelsList = Array(shuffledKhels[0..<Int(stepper.value)])
+                    }
                 } else {
                     var index = 0
+                    khelsList = [Khel]()
                     while khelsList.count < Int(stepper.value) {
                         
                         if shuffledKhels.count-1 == index {
