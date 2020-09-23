@@ -10,8 +10,6 @@ import WidgetKit
 import SwiftUI
 import PlistManager
 
-//TODO: Deeplink to open the KhelDetailView
-
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> KhelEntry {
         KhelEntry(date: Date())
@@ -94,7 +92,7 @@ struct KhelWidgetEntryView: View {
         
         let khel = entry.randomKhel()
         
-        HStack(content: {
+        let hStack = HStack(content: {
             VStack(alignment: .leading, spacing: 6) {
                 Text("Khel of the day")
                     .font(.caption)
@@ -103,6 +101,7 @@ struct KhelWidgetEntryView: View {
                 Image("runIcon")
                     .resizable()
                     .frame(width: 24.0, height: 24.0)
+                Spacer()
                 Text(khel.name)
                     .font(.body)
                     .fontWeight(.bold)
@@ -115,12 +114,14 @@ struct KhelWidgetEntryView: View {
                     .foregroundColor(Color(UIColor.systemBackground))
                     .background(Color(khel.category.color))
                     .cornerRadius(5)
-                Spacer()
             }
             Spacer()
         })
         .padding(16)
-        .widgetURL(URL(string: "khel.widget://" + khel.name ))
+        
+        if let encodedKhelName = khel.name.addingPercentEncoding(withAllowedCharacters: .alphanumerics) {
+            hStack.widgetURL(URL(string: "khel.widget://" + encodedKhelName))
+        }
     }
 }
 

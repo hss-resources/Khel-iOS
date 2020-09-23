@@ -10,13 +10,14 @@ import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
+    var tempContexts: Set<UIOpenURLContext>?
     var window: UIWindow?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        //TODO: Implement deeplink for newly opened app: https://stackoverflow.com/a/58625433/2968456
+        tempContexts = connectionOptions.urlContexts
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
@@ -41,7 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }()
             
             if let khel = allKhels.first(where: { $0.name.localizedCaseInsensitiveCompare(khelName) == .orderedSame }),
-               var topController = UIApplication.shared.keyWindow?.rootViewController {
+               var topController = window?.rootViewController {
                 while let presentedViewController = topController.presentedViewController {
                     topController = presentedViewController
                 }
@@ -50,6 +51,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
         }
         
+    }
+    
+    func sceneDidBecomeActive(_ scene: UIScene) {
+        if let tempContexts = tempContexts {
+            self.scene(scene, openURLContexts: tempContexts)
+            self.tempContexts = nil
+        }
     }
     
 }
